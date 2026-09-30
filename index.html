@@ -122,6 +122,36 @@
     h3 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); font-weight: 600; }
     p  { max-width: 62ch; }
 
+    /* ── TITLE SPLASH ── */
+    .title-splash {
+      position: relative; width: 100%; overflow: hidden;
+      line-height: 0;
+    }
+    .title-splash img.title-bg {
+      width: 100%; height: auto; display: block;
+    }
+    .title-play-link {
+      position: absolute;
+      left: 50%; bottom: 8%;
+      transform: translateX(-50%);
+      display: block;
+      width: clamp(120px, 16vw, 220px);
+    }
+    .title-play-link img {
+      width: 100%; height: auto; display: block;
+      animation: title-pulse 2.6s ease-in-out infinite;
+      transform-origin: center;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25));
+    }
+    .title-play-link:hover img { animation-play-state: paused; }
+    @keyframes title-pulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.08); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .title-play-link img { animation: none !important; }
+    }
+
     /* ── NAV ── */
     .nav {
       position: sticky; top: 0; z-index: 200;
@@ -578,10 +608,18 @@
 
 <body>
 
+  <!-- ── TITLE SPLASH ── -->
+  <section class="title-splash" aria-label="This Is Not Financial Advice title screen">
+    <img src="./assets/title-page.png" alt="This Is Not Financial Advice; The Money Learning Game — title screen, cat café included" class="title-bg">
+    <a href="#waitlist" class="title-play-link" aria-label="Join the waitlist">
+      <img src="./assets/play-button.png" alt="Play">
+    </a>
+  </section>
+
   <!-- ── NAV ── -->
   <nav class="nav">
     <div class="nav-brand">
-      <img src="./cat-cafe-logo.png" alt="TINFA logo" class="nav-logo">
+      <img src="./assets/cat-cafe-logo.png" alt="TINFA logo" class="nav-logo">
       <span class="nav-name">This Is Not Financial Advice</span>
     </div>
     <ul class="nav-links">
@@ -887,7 +925,7 @@
     <div class="section-inner">
       <div class="creator-grid">
         <div class="creator-photo-wrap reveal">
-          <img src="./chloe-pfp.jpg" alt="Chloe, creator of This Is Not Financial Advice" class="creator-photo">
+          <img src="./assets/chloe-pfp.jpg" alt="Chloe, creator of This Is Not Financial Advice" class="creator-photo">
           <div class="creator-blob"></div>
           <div class="creator-blob-2"></div>
         </div>
@@ -950,7 +988,7 @@
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-brand">
-      <img src="./cat-cafe-logo.png" alt="TINFA logo" class="footer-logo">
+      <img src="./assets/cat-cafe-logo.png" alt="TINFA logo" class="footer-logo">
       <span class="footer-name">This Is Not Financial Advice; The Money Learning Game</span>
     </div>
     <p class="footer-copy">© 2026 — Lovingly built by Chloe. All rights reserved. Go save some money! 🌱</p>
