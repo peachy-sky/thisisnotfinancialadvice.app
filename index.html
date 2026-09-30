@@ -125,23 +125,22 @@
     /* ── TITLE SPLASH ── */
     .title-splash {
       position: relative; width: 100%; overflow: hidden;
-      line-height: 0;
+      line-height: 0; cursor: pointer;
     }
     .title-splash img.title-bg {
       width: 100%; height: auto; display: block;
     }
     .title-play-link {
       position: absolute;
-      left: 50%; bottom: 8%;
-      transform: translateX(-50%);
+      top: 50%; right: -6%;
+      transform: translateY(-50%);
       display: block;
-      width: clamp(120px, 16vw, 220px);
+      width: clamp(360px, 48vw, 660px);
     }
     .title-play-link img {
       width: 100%; height: auto; display: block;
       animation: title-pulse 2.6s ease-in-out infinite;
       transform-origin: center;
-      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25));
     }
     .title-play-link:hover img { animation-play-state: paused; }
     @keyframes title-pulse {
@@ -154,7 +153,7 @@
 
     /* ── NAV ── */
     .nav {
-      position: sticky; top: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       background: rgba(254, 245, 236, 0.90);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
@@ -609,9 +608,9 @@
 <body>
 
   <!-- ── TITLE SPLASH ── -->
-  <section class="title-splash" aria-label="This Is Not Financial Advice title screen">
+  <section class="title-splash" id="titleSplash" aria-label="This Is Not Financial Advice title screen">
     <img src="./assets/title-page.png" alt="This Is Not Financial Advice; The Money Learning Game — title screen, cat café included" class="title-bg">
-    <a href="#waitlist" class="title-play-link" aria-label="Join the waitlist">
+    <a href="#hero" class="title-play-link" aria-label="Scroll to next section">
       <img src="./assets/play-button.png" alt="Play">
     </a>
   </section>
@@ -995,6 +994,12 @@
   </footer>
 
   <script>
+    // Title splash — clicking anywhere scrolls to the next section
+    const titleSplash = document.getElementById('titleSplash');
+    titleSplash.addEventListener('click', () => {
+      document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+    });
+
     // Theme toggle
     const themeBtn = document.getElementById('themeBtn');
     const root = document.documentElement;
