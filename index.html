@@ -246,98 +246,15 @@
     }
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* ── HERO CARDS ── */
+    /* ── HERO VISUAL ── */
     .hero-visual {
       position: relative; z-index: 1;
       display: flex; justify-content: center; align-items: center;
-      height: 380px;
     }
-
-    .card-hand {
-      position: relative; width: 340px; height: 340px;
-    }
-
-    .gcard {
-      position: absolute;
-      width: 156px; height: 218px;
-      border-radius: 18px;
-      overflow: hidden;
+    .hero-title-art {
+      width: 100%; max-width: 480px; height: auto;
+      border-radius: var(--r-card);
       box-shadow: var(--shadow-lg);
-      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s;
-      cursor: default;
-    }
-    .gcard:hover {
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2) !important;
-      z-index: 20 !important;
-    }
-
-    .gcard-1 {
-      left: 0; top: 44px;
-      transform: rotate(-13deg);
-      z-index: 1;
-      animation: float-a 4.2s ease-in-out infinite;
-    }
-    .gcard-2 {
-      left: 92px; top: 8px;
-      transform: rotate(0deg);
-      z-index: 3;
-      animation: float-b 3.8s ease-in-out infinite;
-    }
-    .gcard-3 {
-      right: 0; top: 32px;
-      transform: rotate(11deg);
-      z-index: 2;
-      animation: float-c 4.6s ease-in-out infinite;
-    }
-
-    .gcard-1:hover { transform: rotate(-2deg) translateY(-10px) scale(1.04); }
-    .gcard-2:hover { transform: rotate(0deg) translateY(-10px) scale(1.04); }
-    .gcard-3:hover { transform: rotate(2deg) translateY(-10px) scale(1.04); }
-
-    @keyframes float-a {
-      0%, 100% { transform: rotate(-13deg) translateY(0px); }
-      50%       { transform: rotate(-13deg) translateY(-8px); }
-    }
-    @keyframes float-b {
-      0%, 100% { transform: rotate(0deg) translateY(0px); }
-      50%       { transform: rotate(0deg) translateY(-12px); }
-    }
-    @keyframes float-c {
-      0%, 100% { transform: rotate(11deg) translateY(0px); }
-      50%       { transform: rotate(11deg) translateY(-6px); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .gcard { animation: none !important; }
-    }
-
-    .gcard-stripe {
-      height: 32px; width: 100%;
-      display: flex; align-items: center; padding: 0 12px;
-    }
-    .gcard-type {
-      font-size: 9px; font-weight: 800; letter-spacing: 0.08em;
-      text-transform: uppercase; color: rgba(255,255,255,0.85);
-    }
-    .gcard-body {
-      flex: 1; padding: 10px 12px 12px;
-      background: #faf6ef; display: flex; flex-direction: column;
-      justify-content: space-between; height: calc(100% - 32px);
-    }
-    .gcard-icon { font-size: 26px; text-align: center; margin: 4px 0 6px; }
-    .gcard-name {
-      font-family: var(--ff-display); font-weight: 700;
-      font-size: 12px; color: #3a2e22; text-align: center;
-      line-height: 1.3; margin-bottom: 4px;
-    }
-    .gcard-desc {
-      font-size: 9.5px; color: #8a7a6a; text-align: center;
-      font-style: italic; line-height: 1.45;
-    }
-    .gcard-pill {
-      align-self: center; margin-top: 8px;
-      padding: 3px 10px; border-radius: var(--r-pill);
-      font-size: 9px; font-weight: 800; display: inline-block;
     }
 
     /* ── WAVES ── */
@@ -550,14 +467,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; min-height: unset; padding-top: 60px; }
-      .hero-visual { order: -1; height: 280px; }
-      .card-hand { width: 280px; height: 280px; }
-      .gcard { width: 128px; height: 178px; }
-      .gcard-stripe { height: 26px; }
-      .gcard-icon { font-size: 22px; }
-      .gcard-1 { left: 0; top: 36px; }
-      .gcard-2 { left: 76px; top: 6px; }
-      .gcard-3 { right: 0; top: 26px; }
+      .hero-visual { order: -1; }
       .what-grid,
       .creator-grid { grid-template-columns: 1fr; }
       .creator-photo { max-width: 220px; border-radius: 50%; }
@@ -624,54 +534,7 @@
     </div>
 
     <div class="hero-visual">
-      <div class="card-hand">
-
-        <!-- Card 1: HYSA -->
-        <div class="gcard gcard-1">
-          <div class="gcard-stripe" style="background: #6c7340;">
-            <span class="gcard-type">Account Card</span>
-          </div>
-          <div class="gcard-body">
-            <div>
-              <div class="gcard-icon">🏦</div>
-              <div class="gcard-name">High-Yield Savings</div>
-              <div class="gcard-desc">Your savings, but make it smart. Embarrassingly smarter than a checking account.</div>
-            </div>
-            <span class="gcard-pill" style="background:#e8f0e0; color:#4a6030;">+4.2% APY</span>
-          </div>
-        </div>
-
-        <!-- Card 2: Roth IRA -->
-        <div class="gcard gcard-2">
-          <div class="gcard-stripe" style="background: #904a40;">
-            <span class="gcard-type">Account Card</span>
-          </div>
-          <div class="gcard-body">
-            <div>
-              <div class="gcard-icon">🌱</div>
-              <div class="gcard-name">Roth IRA</div>
-              <div class="gcard-desc">Tax-free growth. Open it NOW. Future You will literally write you a thank-you note.</div>
-            </div>
-            <span class="gcard-pill" style="background:#fde8e0; color:#904a40;">+7% avg/yr</span>
-          </div>
-        </div>
-
-        <!-- Card 3: Work Bonus -->
-        <div class="gcard gcard-3">
-          <div class="gcard-stripe" style="background: #9b7e56;">
-            <span class="gcard-type">Life Event</span>
-          </div>
-          <div class="gcard-body">
-            <div>
-              <div class="gcard-icon">🎉</div>
-              <div class="gcard-name">Year-End Bonus</div>
-              <div class="gcard-desc">Your boss noticed!! Now comes the real game: what do you actually DO with it?</div>
-            </div>
-            <span class="gcard-pill" style="background:#fef0d8; color:#9b7e56;">+$2,000</span>
-          </div>
-        </div>
-
-      </div>
+      <img src="./assets/full-titlepage.png" alt="This Is Not Financial Advice; The Money Learning Game — title art" class="hero-title-art">
     </div>
   </section>
 
