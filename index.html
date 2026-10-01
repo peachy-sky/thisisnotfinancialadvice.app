@@ -122,35 +122,6 @@
     h3 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); font-weight: 600; }
     p  { max-width: 62ch; }
 
-    /* ── TITLE SPLASH ── */
-    .title-splash {
-      position: relative; width: 100%; overflow: hidden;
-      line-height: 0; cursor: pointer;
-    }
-    .title-splash img.title-bg {
-      width: 100%; height: auto; display: block;
-    }
-    .title-play-link {
-      position: absolute;
-      top: 50%; left: -6%;
-      transform: translateY(calc(-50% + 30px));
-      display: block;
-      width: clamp(220px, 52.8vw, 100vw);
-    }
-    .title-play-link img {
-      width: 100%; height: auto; display: block;
-      animation: title-pulse 2.6s ease-in-out infinite;
-      transform-origin: center;
-    }
-    .title-play-link:hover img { animation-play-state: paused; }
-    @keyframes title-pulse {
-      0%, 100% { transform: scale(1); }
-      50%       { transform: scale(1.08); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .title-play-link img { animation: none !important; }
-    }
-
     /* ── NAV ── */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
@@ -607,13 +578,6 @@
 
 <body>
 
-  <!-- ── TITLE SPLASH ── -->
-  <section class="title-splash" id="titleSplash" aria-label="This Is Not Financial Advice title screen">
-    <img src="./assets/title-page.png" alt="This Is Not Financial Advice; The Money Learning Game — title screen, cat café included" class="title-bg">
-    <a href="#hero" class="title-play-link" aria-label="Scroll to next section">
-      <img src="./assets/play-button.png" alt="Play">
-    </a>
-  </section>
 
   <!-- ── NAV ── -->
   <nav class="nav">
@@ -994,12 +958,6 @@
   </footer>
 
   <script>
-    // Title splash — clicking anywhere scrolls to the next section
-    const titleSplash = document.getElementById('titleSplash');
-    titleSplash.addEventListener('click', () => {
-      document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
-    });
-
     // Theme toggle
     const themeBtn = document.getElementById('themeBtn');
     const root = document.documentElement;
