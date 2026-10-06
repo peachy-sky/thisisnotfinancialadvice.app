@@ -16,6 +16,8 @@
       --bg:           #fef5ec;
       --bg-alt:       #ffefd8;
       --bg-card:      #fffaf5;
+      --bg-sage:      #e6e9d7;
+      --bg-gold:      #f6dfa4;
       --text:         #251e01;
       --text-mid:     #72340b;
       --text-soft:    #8f6f60;
@@ -47,6 +49,7 @@
       --shadow-lg:    0 10px 48px rgba(144, 74, 64, 0.16);
       --r-card:       20px;
       --r-pill:       999px;
+      --r-arch:       999px 999px 20px 20px;
 
       --ff-display:   'Playfair Display', Georgia, serif;
       --ff-body:      'Nunito', system-ui, sans-serif;
@@ -58,6 +61,8 @@
         --bg:        #1d1208;
         --bg-alt:    #271808;
         --bg-card:   #2e1c0e;
+        --bg-sage:   #28301f;
+        --bg-gold:   #40330f;
         --text:      #fef5ec;
         --text-mid:  #e3b091;
         --text-soft: #c9a07a;
@@ -74,6 +79,8 @@
       --bg:        #1d1208;
       --bg-alt:    #271808;
       --bg-card:   #2e1c0e;
+      --bg-sage:   #28301f;
+      --bg-gold:   #40330f;
       --text:      #fef5ec;
       --text-mid:  #e3b091;
       --text-soft: #c9a07a;
@@ -89,6 +96,8 @@
       --bg:        #fef5ec;
       --bg-alt:    #ffefd8;
       --bg-card:   #fffaf5;
+      --bg-sage:   #e6e9d7;
+      --bg-gold:   #f6dfa4;
       --text:      #251e01;
       --text-mid:  #72340b;
       --text-soft: #8f6f60;
@@ -123,38 +132,45 @@
     p  { max-width: 62ch; }
 
     /* ── NAV ── */
+    .nav-wrap {
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      z-index: 200; width: 92%; max-width: 1180px;
+    }
     .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(254, 245, 236, 0.90);
+      position: relative;
+      background: rgba(255, 250, 245, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(144, 74, 64, 0.10);
-      padding: 0 6%;
+      border-radius: var(--r-pill);
+      box-shadow: var(--shadow-lg);
+      padding: 0 14px 0 28px;
       display: flex; align-items: center; justify-content: space-between;
-      height: 70px;
+      height: 66px;
     }
     :root[data-theme="dark"] .nav {
-      background: rgba(29, 18, 8, 0.90);
+      background: rgba(46, 28, 14, 0.92);
     }
 
-    .nav-brand { display: flex; align-items: center; gap: 12px; }
-    .nav-logo  { height: 42px; width: auto; }
-    .nav-name  {
-      font-family: var(--ff-display); font-style: italic;
-      font-size: 0.95rem; font-weight: 700;
-      color: var(--rose); line-height: 1.25; max-width: 160px;
+    .nav-badge {
+      position: absolute; top: -26px; left: 50%; transform: translateX(-50%);
+      width: 58px; height: 58px; border-radius: 50%;
+      background: var(--bg-card); border: 4px solid var(--bg);
+      box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
     }
+    .nav-badge img { width: 100%; height: 100%; object-fit: cover; }
 
     .nav-links {
-      display: flex; align-items: center; gap: 28px; list-style: none;
+      display: flex; align-items: center; gap: 26px; list-style: none;
     }
     .nav-links a {
-      font-size: 0.88rem; font-weight: 700; letter-spacing: 0.02em;
+      font-size: 0.86rem; font-weight: 700; letter-spacing: 0.02em;
       color: var(--text-soft);
     }
     .nav-links a:hover { color: var(--rose); }
 
-    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
 
     .btn-theme {
       background: transparent; border: 1.5px solid var(--blush);
@@ -169,7 +185,7 @@
       background: var(--rose); color: #fff;
       padding: 13px 30px; border-radius: var(--r-pill);
       font-weight: 800; font-size: 0.95rem; font-family: var(--ff-body);
-      border: none; cursor: pointer; display: inline-block;
+      border: none; cursor: pointer; display: inline-flex; align-items:center; gap:6px;
       box-shadow: 0 4px 18px rgba(144, 74, 64, 0.28);
       transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
       text-decoration: none;
@@ -180,97 +196,91 @@
       box-shadow: 0 8px 28px rgba(144, 74, 64, 0.36);
     }
 
-    .btn-outline {
-      background: transparent; color: var(--rose);
-      padding: 12px 28px; border-radius: var(--r-pill);
-      font-weight: 700; font-size: 0.95rem; font-family: var(--ff-body);
-      border: 2px solid var(--coral); cursor: pointer; display: inline-block;
-      transition: background 0.2s, color 0.2s, transform 0.15s;
-      text-decoration: none;
+    .btn-text-link {
+      font-weight: 800; font-size: 0.95rem; color: var(--text-mid);
+      text-decoration: underline; text-underline-offset: 4px;
+      display: inline-flex; align-items: center;
     }
-    .btn-outline:hover {
-      background: var(--blush); color: var(--rose-dk);
-      transform: translateY(-2px);
-    }
+    .btn-text-link:hover { color: var(--rose); }
 
     /* ── HERO ── */
     .hero {
-      min-height: 91vh;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 40px; align-items: center;
-      padding: 80px 8% 64px;
+      padding: 168px 6% 0;
       position: relative; overflow: hidden;
+      text-align: center;
     }
     .hero::before {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background:
-        radial-gradient(ellipse 55% 50% at 75% 35%, rgba(211,113,100,0.09) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 55% at 12% 75%, rgba(152,171,126,0.11) 0%, transparent 65%);
+        radial-gradient(ellipse 55% 50% at 75% 15%, rgba(211,113,100,0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 55% at 12% 35%, rgba(152,171,126,0.11) 0%, transparent 65%);
     }
 
-    .hero-copy { position: relative; z-index: 1; }
+    .hero-copy { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
 
-    .eyebrow {
-      font-family: var(--ff-accent); font-size: 1.25rem;
-      color: var(--coral); display: block; margin-bottom: 14px;
+    .hero-badge-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1.5px solid var(--blush);
+      border-radius: var(--r-pill); padding: 7px 20px;
+      font-size: 0.83rem; font-weight: 800; color: var(--terracotta);
+      margin-bottom: 22px;
     }
 
-    .hero-title { color: var(--dark-choc); margin-bottom: 6px; }
+    .hero-title { color: var(--dark-choc); margin-bottom: 18px; }
     .hero-title em { color: var(--rose); font-style: italic; }
 
-    .hero-subtitle {
-      font-family: var(--ff-display); font-style: italic;
-      font-size: 1.15rem; color: var(--text-mid); margin-bottom: 18px;
-    }
-
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--milk-foam); border: 1.5px solid var(--blush);
-      border-radius: var(--r-pill); padding: 5px 16px;
-      font-size: 0.83rem; font-weight: 700; color: var(--terracotta);
-      margin-bottom: 24px;
-    }
-    .badge-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--coral); flex-shrink: 0;
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.5; transform: scale(0.75); }
-    }
-
     .hero-desc {
-      font-size: 1.02rem; color: var(--text-soft);
-      line-height: 1.82; margin-bottom: 34px;
+      font-size: 1.04rem; color: var(--text-soft);
+      line-height: 1.82; margin: 0 auto 30px; max-width: 58ch;
     }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-actions { display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; align-items: center; margin-bottom: 8px; }
+
+    .hero-doodle { position: absolute; z-index: 1; opacity: 0.8; pointer-events: none; }
+    .hero-doodle.spark-1 { top: 120px; left: 6%; }
+    .hero-doodle.spark-2 { top: 190px; right: 8%; }
+    @media (max-width: 760px) { .hero-doodle { display: none; } }
 
     /* ── HERO VISUAL ── */
     .hero-visual {
       position: relative; z-index: 1;
-      display: flex; justify-content: center; align-items: center;
+      display: flex; justify-content: center; align-items: flex-end;
+      margin-top: 36px;
     }
+    .hero-blob {
+      position: absolute; border-radius: 50%; z-index: -1;
+    }
+    .hero-blob-1 { width: 220px; height: 220px; background: var(--salmon); opacity: 0.3; left: 4%; bottom: -30px; }
+    .hero-blob-2 { width: 160px; height: 160px; background: var(--peridot); opacity: 0.28; right: 6%; bottom: -10px; }
+
+    .hero-connector { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); z-index: 0; pointer-events: none; }
+    @media (max-width: 760px) { .hero-connector { display: none; } }
+
     .hero-title-art {
-      width: 100%; max-width: 480px; height: auto;
-      border-radius: var(--r-card);
+      width: 100%; max-width: 560px; height: auto;
+      border-radius: var(--r-card) var(--r-card) 0 0;
       box-shadow: var(--shadow-lg);
+      margin-bottom: -2px;
+      position: relative; z-index: 1;
     }
 
     /* ── WAVES ── */
-    .wave { width: 100%; overflow: hidden; line-height: 0; margin-bottom: -1px; }
+    .wave { width: 100%; overflow: hidden; line-height: 0; margin-bottom: -1px; position: relative; z-index: 1; }
     .wave svg { display: block; width: 100%; }
 
     /* ── SHARED SECTION ── */
     .section-inner {
       max-width: 1160px; margin: 0 auto; padding: 80px 5%;
     }
+    .section-inner.centered { text-align: center; }
+    .section-inner.centered h2 { margin: 0 auto; }
+    .section-inner.centered > p { margin-left: auto; margin-right: auto; }
 
     .section-label {
       font-family: var(--ff-accent); font-size: 1.1rem;
       color: var(--coral); display: flex; align-items: center;
       gap: 10px; margin-bottom: 10px;
     }
+    .section-inner.centered .section-label { justify-content: center; }
     .section-label svg { flex-shrink: 0; }
 
     /* ── WHAT IS IT ── */
@@ -282,74 +292,117 @@
     .what-copy p { color: var(--text-soft); font-size: 1.01rem; margin-top: 16px; max-width: none; }
     .what-copy p + p { margin-top: 12px; }
 
-    .what-tiles {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    .badge-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      margin-top: 44px;
     }
-    .what-tile {
-      background: var(--bg-card); border: 1.5px solid var(--blush);
-      border-radius: 18px; padding: 22px 18px;
-      text-align: center; box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
+    .badge-card {
+      border-radius: 22px; padding: 26px 18px; text-align: center;
+      box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s;
     }
-    .what-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .what-tile.accent {
-      grid-column: 1 / -1; background: var(--rose);
-      border-color: transparent; color: #fff;
+    .badge-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .badge-card.c-rose   { background: var(--blush); }
+    .badge-card.c-gold   { background: var(--bg-gold); }
+    .badge-card.c-sage   { background: var(--bg-sage); }
+    .badge-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--bg-card); display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin: 0 auto 12px; box-shadow: var(--shadow);
     }
-    .tile-val {
-      font-family: var(--ff-display); font-size: 2.1rem;
-      font-weight: 700; line-height: 1; margin-bottom: 5px;
-    }
-    .what-tile.accent .tile-val { color: #fef5ec; }
-    .tile-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.7; }
+    .badge-title { font-weight: 800; font-size: 0.95rem; color: var(--text); }
 
     /* ── HOW IT WORKS ── */
-    .how { background: var(--bg-alt); }
+    .how { background: var(--bg-sage); position: relative; }
     .how-steps {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px; margin-top: 48px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px; margin-top: 48px;
     }
     .how-step {
-      background: var(--bg-card); border: 1.5px solid rgba(144,74,64,0.09);
-      border-radius: 22px; padding: 28px 24px;
-      box-shadow: var(--shadow);
+      border-radius: 26px; padding: 0 0 26px;
+      box-shadow: var(--shadow); overflow: hidden;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .how-step:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-    .step-num {
-      font-family: var(--ff-display); font-style: italic;
-      font-size: 2rem; font-weight: 700; color: var(--blush);
-      line-height: 1; margin-bottom: 12px;
+    .how-step:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .how-step.c-terracotta { background: var(--blush); }
+    .how-step.c-gold       { background: var(--bg-gold); }
+    .how-step.c-sage       { background: var(--jade); }
+    .how-step.c-cream      { background: var(--bg-card); }
+
+    .step-top {
+      height: 92px; display: flex; align-items: center; justify-content: center;
+      margin: 18px 18px 0; border-radius: var(--r-arch);
+      background: rgba(255,255,255,0.55);
+      font-size: 2.1rem;
     }
-    .how-step h3 { color: var(--rose); margin-bottom: 8px; font-size: 1.05rem; }
-    .how-step p { font-size: 0.91rem; color: var(--text-soft); max-width: none; }
+    .how-step h3 { color: var(--rose-dk); margin: 18px 22px 8px; font-size: 1.05rem; }
+    .how-step p { font-size: 0.91rem; color: var(--text-mid); max-width: none; margin: 0 22px 16px; }
+    .step-pill {
+      margin: 0 22px; display: inline-flex; align-items: center; gap: 6px;
+      background: var(--dark-choc); color: #fff;
+      padding: 8px 16px; border-radius: var(--r-pill);
+      font-size: 0.78rem; font-weight: 800;
+    }
+    .step-pill:hover { background: var(--rose); color: #fff; }
 
     /* ── LEARN ── */
     .learn { background: var(--bg); }
     .learn-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-      gap: 14px; margin-top: 48px;
+      gap: 16px; margin-top: 48px;
     }
     .learn-chip {
-      background: var(--bg-card); border: 1.5px solid var(--blush);
-      border-radius: 16px; padding: 20px 16px; display: flex;
+      border-radius: 20px; padding: 22px 18px; display: flex;
       flex-direction: column; gap: 8px;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow);
     }
-    .learn-chip:hover {
-      border-color: var(--coral); box-shadow: var(--shadow);
-      transform: translateY(-3px);
+    .learn-chip:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .learn-chip.c-rose   { background: var(--blush); }
+    .learn-chip.c-gold   { background: var(--bg-gold); }
+    .learn-chip.c-sage   { background: var(--bg-sage); }
+    .learn-chip.c-cream  { background: var(--bg-card); border: 1.5px solid var(--blush); }
+
+    .chip-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
     }
-    .chip-icon { font-size: 1.7rem; }
-    .chip-name { font-size: 0.88rem; font-weight: 800; color: var(--text); }
-    .chip-desc { font-size: 0.8rem; color: var(--text-soft); line-height: 1.5; max-width: none; }
+    .chip-name { font-size: 0.9rem; font-weight: 800; color: var(--text); }
+    .chip-desc { font-size: 0.8rem; color: var(--text-mid); line-height: 1.5; max-width: none; }
 
     /* ── WHY ── */
-    .why { background: var(--spruce); }
-    .why .section-inner { padding-bottom: 88px; }
+    .why { background: var(--spruce); position: relative; }
+    .why .section-inner { padding-top: 120px; padding-bottom: 88px; }
     .why .section-label { color: var(--peridot); }
     .why h2 { color: #f4f0e8; margin-bottom: 24px; }
     .why-lede { font-size: 1.08rem; color: var(--eucalyptus); max-width: 54ch; line-height: 1.8; }
+
+    .bio-card {
+      position: absolute; top: -56px; right: 6%;
+      background: var(--bg-card); border-radius: 26px;
+      box-shadow: var(--shadow-lg); padding: 20px 24px 20px 96px;
+      max-width: 360px; z-index: 2;
+    }
+    .bio-photo {
+      position: absolute; left: -28px; top: -28px;
+      width: 104px; height: 104px; border-radius: 50%;
+      object-fit: cover; object-position: top;
+      border: 5px solid var(--bg-card); box-shadow: var(--shadow-lg);
+      background: var(--blush);
+    }
+    .bio-card h4 { font-family: var(--ff-display); font-size: 1.05rem; color: var(--rose); margin-bottom: 6px; }
+    .bio-card p { font-size: 0.85rem; color: var(--text-soft); max-width: none; line-height: 1.5; margin-bottom: 10px; }
+    .bio-card a.step-pill-small {
+      display: inline-flex; background: var(--rose); color:#fff; font-size: 0.75rem; font-weight: 800;
+      padding: 7px 14px; border-radius: var(--r-pill);
+    }
+    .bio-card a.step-pill-small:hover { background: var(--rose-dk); color: #fff; }
+    @media (max-width: 760px) {
+      .bio-card { position: static; max-width: none; margin: 0 0 32px; padding: 20px 20px 20px 96px; }
+      .why .section-inner { padding-top: 64px; }
+    }
+
     .why-quote {
       margin: 36px 0; padding: 24px 28px;
       border-left: 3px solid var(--peridot);
@@ -382,7 +435,7 @@
     .creator-photo {
       width: 100%; max-width: 280px;
       aspect-ratio: 1 / 1.1; object-fit: cover; object-position: top;
-      border-radius: 28px 28px 28px 6px;
+      border-radius: var(--r-arch);
       border: 4px solid var(--blush); box-shadow: var(--shadow-lg);
     }
     .creator-blob {
@@ -396,7 +449,10 @@
       background: var(--salmon); opacity: 0.18; z-index: -1;
     }
 
-    .creator-copy .eyebrow { margin-bottom: 4px; }
+    .creator-copy .eyebrow {
+      font-family: var(--ff-accent); font-size: 1.2rem; color: var(--coral);
+      display: block; margin-bottom: 4px;
+    }
     .creator-copy h2 { margin-bottom: 20px; }
     .creator-copy p {
       font-size: 1rem; color: var(--text-soft);
@@ -406,13 +462,49 @@
     .creator-copy em { color: var(--rose); font-style: italic; }
     .creator-copy strong { color: var(--text-mid); font-weight: 700; }
 
+    /* ── FAQ ── */
+    .faq { background: var(--bg-gold); }
+    .faq-grid {
+      display: grid; grid-template-columns: 220px 1fr; gap: 48px;
+      margin-top: 48px; align-items: start;
+    }
+    .faq-cats { display: flex; flex-direction: column; gap: 8px; }
+    .faq-cat {
+      padding: 12px 18px; border-radius: var(--r-pill);
+      font-size: 0.85rem; font-weight: 800; color: var(--text-mid);
+      background: rgba(255,255,255,0.45);
+    }
+    .faq-cat.active { background: var(--dark-choc); color: #fff; }
+
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--bg-card); border-radius: 18px;
+      padding: 4px 22px; box-shadow: var(--shadow);
+    }
+    .faq-item summary {
+      padding: 16px 0; cursor: pointer; font-weight: 800; font-size: 0.96rem;
+      color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; font-size: 1.3rem; color: var(--coral); flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p { font-size: 0.88rem; color: var(--text-soft); padding-bottom: 18px; max-width: none; }
+
+    @media (max-width: 760px) {
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-cats { flex-direction: row; flex-wrap: wrap; }
+    }
+
     /* ── CTA ── */
     .cta-band {
       background: linear-gradient(140deg, var(--rose) 0%, var(--terracotta) 100%);
       text-align: center;
     }
     .cta-inner { max-width: 600px; margin: 0 auto; padding: 80px 5%; }
-    .cta-inner .eyebrow { color: var(--blush); justify-content: center; }
+    .cta-inner .eyebrow { color: var(--blush); justify-content: center; font-family: var(--ff-accent); font-size: 1.2rem; display: block; margin-bottom: 12px; }
     .cta-inner h2 { color: #fff; margin-bottom: 14px; }
     .cta-inner p { color: rgba(255,255,255,0.78); margin: 0 auto 36px; font-size: 1.02rem; }
 
@@ -440,18 +532,50 @@
     }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--dark-choc); padding: 40px 7%;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 20px;
+    footer { background: var(--dark-choc); padding: 72px 7% 0; }
+    .footer-top {
+      max-width: 1160px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px;
+      padding-bottom: 56px;
     }
-    .footer-brand { display: flex; align-items: center; gap: 12px; }
-    .footer-logo { height: 34px; opacity: 0.55; }
+    .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .footer-logo { height: 40px; border-radius: 50%; }
     .footer-name {
       font-family: var(--ff-display); font-style: italic;
-      font-size: 0.9rem; color: var(--bronze);
+      font-size: 0.95rem; color: var(--bronze); max-width: 180px; line-height: 1.3;
     }
-    .footer-copy { font-size: 0.8rem; color: var(--hot-coco); opacity: 0.5; }
+    .footer-blurb { font-size: 0.86rem; color: rgba(254,245,236,0.5); max-width: 30ch; }
+    .footer-col h5 {
+      font-size: 0.8rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
+      color: var(--thyme); margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a, .footer-col span {
+      font-size: 0.87rem; color: rgba(254,245,236,0.72);
+    }
+    .footer-col a:hover { color: var(--coral); }
+    .footer-social { display: flex; gap: 10px; margin-top: 18px; }
+    .footer-social a {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(254,245,236,0.08); display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; color: rgba(254,245,236,0.75);
+    }
+    .footer-social a:hover { background: var(--rose); color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(254,245,236,0.1);
+      max-width: 1160px; margin: 0 auto; padding: 22px 0;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 0.8rem; color: var(--hot-coco); opacity: 0.6; }
+    .footer-legal { display: flex; gap: 18px; }
+    .footer-legal span { font-size: 0.8rem; color: rgba(254,245,236,0.45); }
+
+    @media (max-width: 760px) {
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 500px) {
+      .footer-top { grid-template-columns: 1fr; }
+    }
 
     /* ── SCROLL REVEAL ── */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.65s ease, transform 0.65s ease; }
@@ -466,21 +590,19 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      .hero { grid-template-columns: 1fr; min-height: unset; padding-top: 60px; }
-      .hero-visual { order: -1; }
       .what-grid,
       .creator-grid { grid-template-columns: 1fr; }
-      .creator-photo { max-width: 220px; border-radius: 50%; }
+      .creator-photo { max-width: 220px; }
       .creator-blob, .creator-blob-2 { display: none; }
       .nav-links { display: none; }
       .why-stats { gap: 28px; }
+      .badge-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
+      .hero { padding-top: 120px; }
       .hero-actions { flex-direction: column; }
       .cta-form { flex-direction: column; }
       .section-inner { padding: 60px 5%; }
-      .what-tiles { grid-template-columns: 1fr; }
-      .what-tile.accent { grid-column: 1; }
       .learn-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -488,60 +610,120 @@
 
 <body>
 
-
   <!-- ── NAV ── -->
-  <nav class="nav">
-    <div class="nav-brand">
-      <img src="./assets/cat-cafe-logo.png" alt="TINFA logo" class="nav-logo">
-      <span class="nav-name">This Is Not Financial Advice</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#how">How It Works</a></li>
-      <li><a href="#learn">What You Learn</a></li>
-      <li><a href="#creator">The Creator</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="btn-theme" id="themeBtn" aria-label="Toggle theme">☀️ / 🌙</button>
-      <a href="#waitlist" class="btn-rose" style="padding: 9px 20px; font-size: 0.88rem;">Join Waitlist</a>
-    </div>
-  </nav>
+  <div class="nav-wrap">
+    <nav class="nav">
+      <div class="nav-badge">
+        <img src="./assets/cat-cafe-logo.png" alt="TINFA logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#learn">What You Learn</a></li>
+      </ul>
+      <ul class="nav-links">
+        <li><a href="#creator">The Creator</a></li>
+        <li><a href="#faq">FAQs</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-theme" id="themeBtn" aria-label="Toggle theme">☀️ / 🌙</button>
+        <a href="#waitlist" class="btn-rose" style="padding: 9px 20px; font-size: 0.85rem;">Join Waitlist</a>
+      </div>
+    </nav>
+  </div>
 
   <!-- ── HERO ── -->
   <section class="hero" id="hero">
+    <svg class="hero-doodle spark-1" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="var(--salmon)" opacity="0.6"/>
+    </svg>
+    <svg class="hero-doodle spark-2" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="10" cy="10" r="9" stroke="var(--peridot)" stroke-width="1.5" opacity="0.6"/>
+    </svg>
+
     <div class="hero-copy">
-      <span class="eyebrow">your money era starts NOW ✨</span>
+      <span class="hero-badge-pill">your money era starts NOW ✨</span>
       <h1 class="hero-title">
         <em>This Is Not</em><br>
-        Financial Advice<span style="color:var(--coral);">;</span>
+        <strong>Financial Advice<span style="color:var(--coral);">;</span></strong>
       </h1>
-      <p class="hero-subtitle">The Money Learning Game</p>
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Coming Soon &nbsp;·&nbsp; Ages 11+ &nbsp;·&nbsp; Adults Welcome Too, No Judgment
-      </div>
       <p class="hero-desc">
         Nobody taught us this stuff. Not in school, not at the dinner table,
         definitely not in that one "life skills" class that was mostly about ironing
         shirts. TINFA is a card game where you actually live it — drag money tokens,
         play cards, open real accounts, deal with rent, and try not to blow your
-        budget on "miscellaneous expenses." It's your financial twenties, except
-        this time you actually know what you're doing.
+        budget on "miscellaneous expenses."
       </p>
       <div class="hero-actions">
         <a href="#waitlist" class="btn-rose">I'm SO In</a>
-        <a href="#how" class="btn-outline">Wait, How Does It Work?</a>
+        <a href="#how" class="btn-text-link">Wait, How Does It Work?</a>
       </div>
     </div>
 
     <div class="hero-visual">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <svg class="hero-connector" width="460" height="40" viewBox="0 0 460 40" fill="none" aria-hidden="true">
+        <path d="M10,10 C100,40 160,0 230,20 C300,40 360,0 450,10" stroke="var(--text-soft)" stroke-width="1.5" stroke-dasharray="4 7" fill="none" opacity="0.5"/>
+      </svg>
       <img src="./assets/full-titlepage.png" alt="This Is Not Financial Advice; The Money Learning Game — title art" class="hero-title-art">
     </div>
   </section>
 
   <!-- wave -->
   <div class="wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,24 C280,64 640,0 960,32 C1200,56 1360,8 1440,24 L1440,64 L0,64 Z" fill="var(--bg-alt)"/>
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,28 C120,0 240,56 360,28 C480,0 600,56 720,28 C840,0 960,56 1080,28 C1200,0 1320,56 1440,28 L1440,56 L0,56 Z" fill="var(--bg-sage)"/>
+    </svg>
+  </div>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="how" id="how">
+    <div class="section-inner centered">
+      <div class="reveal">
+        <span class="section-label">
+          <svg width="36" height="20" viewBox="0 0 36 20" fill="none" aria-hidden="true">
+            <ellipse cx="10" cy="12" rx="9" ry="4.5" fill="#98ab7e" opacity="0.5" transform="rotate(-28 10 12)"/>
+            <ellipse cx="26" cy="9" rx="8" ry="4" fill="#6c7340" opacity="0.4" transform="rotate(22 26 9)"/>
+            <path d="M10,16 Q18,6 26,5" stroke="#304126" stroke-width="1.5" fill="none" opacity="0.5"/>
+          </svg>
+          okay so how do you play
+        </span>
+        <h2>One round = one year. No pressure. <em>(A little pressure.)</em></h2>
+      </div>
+
+      <div class="how-steps">
+        <div class="how-step c-terracotta reveal reveal-d1">
+          <div class="step-top">🃏</div>
+          <h3>Draw your hand</h3>
+          <p>Life hands you cards this round — accounts to open, flex events you can jump on, and fixed events you're stuck with. Life is like that!</p>
+          <a href="#waitlist" class="step-pill">Count Me In</a>
+        </div>
+        <div class="how-step c-gold reveal reveal-d2">
+          <div class="step-top">💰</div>
+          <h3>Place your tokens</h3>
+          <p>Drag money tokens onto the board to fund your accounts. Each $1,000 token is a real decision — savings? investments? rent?</p>
+          <a href="#waitlist" class="step-pill">Count Me In</a>
+        </div>
+        <div class="how-step c-sage reveal reveal-d3">
+          <div class="step-top">🎯</div>
+          <h3>Play your cards</h3>
+          <p>Tap flex cards when the moment feels right. Clear required events before you can advance — yes, mandatory, just like real life.</p>
+          <a href="#waitlist" class="step-pill">Count Me In</a>
+        </div>
+        <div class="how-step c-cream reveal reveal-d4">
+          <div class="step-top">📈</div>
+          <h3>Watch it compound</h3>
+          <p>Advance the year! Interest accrues, taxes get calculated, credit events fire. The decisions you made come back around next round.</p>
+          <a href="#waitlist" class="step-pill">Count Me In</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- wave -->
+  <div class="wave" aria-hidden="true" style="background: var(--bg-sage);">
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,28 C120,56 240,0 360,28 C480,56 600,0 720,28 C840,56 960,0 1080,28 C1200,56 1320,0 1440,28 L1440,56 L0,56 Z" fill="var(--bg)"/>
     </svg>
   </div>
 
@@ -572,74 +754,41 @@
           Open a checking account, stash money in a high-yield savings account, invest in a Roth IRA,
           or try your hand at a brokerage. Pay rent. Handle insurance. Deal with surprise expenses
           (the game's personal favorite trick). Watch your credit score react to every single decision
-          you make — in real time. It reacts fast. Like, uncomfortably fast.
+          you make — in real time.
         </p>
         <p>
           At the end of the rounds, you see your net worth, your score, and a projection of where
           you'd land by retirement if you kept those habits up. It's a mirror — and a motivator.
-          And possibly a wake-up call. We say this with love.
         </p>
+      </div>
+
+      <div class="badge-row">
+        <div class="badge-card c-rose reveal reveal-d1">
+          <div class="badge-icon">🎲</div>
+          <div class="badge-title">5–40 Rounds Per Game</div>
+        </div>
+        <div class="badge-card c-gold reveal reveal-d2">
+          <div class="badge-icon">🎂</div>
+          <div class="badge-title">Ages 11+ (Adults Welcome)</div>
+        </div>
+        <div class="badge-card c-sage reveal reveal-d3">
+          <div class="badge-icon">🙅</div>
+          <div class="badge-title">Zero Judgment, Ever</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- wave -->
   <div class="wave" aria-hidden="true" style="background: var(--bg);">
-    <svg viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,40 C360,0 900,64 1440,20 L1440,64 L0,64 Z" fill="var(--bg-alt)"/>
-    </svg>
-  </div>
-
-  <!-- ── HOW IT WORKS ── -->
-  <section class="how" id="how">
-    <div class="section-inner">
-      <div class="reveal">
-        <span class="section-label">
-          <svg width="36" height="20" viewBox="0 0 36 20" fill="none" aria-hidden="true">
-            <ellipse cx="10" cy="12" rx="9" ry="4.5" fill="#98ab7e" opacity="0.5" transform="rotate(-28 10 12)"/>
-            <ellipse cx="26" cy="9" rx="8" ry="4" fill="#6c7340" opacity="0.4" transform="rotate(22 26 9)"/>
-            <path d="M10,16 Q18,6 26,5" stroke="#304126" stroke-width="1.5" fill="none" opacity="0.5"/>
-          </svg>
-          okay so how do you play
-        </span>
-        <h2>One round = one year. No pressure. <em>(A little pressure.)</em></h2>
-      </div>
-
-      <div class="how-steps">
-        <div class="how-step reveal reveal-d1">
-          <div class="step-num">01</div>
-          <h3>Draw your hand</h3>
-          <p>Life hands you cards this round — some exciting, some stressful, some that are technically both. Accounts you can open, flex events you can jump on, and fixed events you're stuck with whether you like it or not. Life is like that!</p>
-        </div>
-        <div class="how-step reveal reveal-d2">
-          <div class="step-num">02</div>
-          <h3>Place your tokens</h3>
-          <p>Drag money tokens onto the board to fund your accounts. Each $1,000 token is a real decision — savings? investments? rent? vibes? (Vibes aren't a category. We checked.) Every dollar you place is doing something.</p>
-        </div>
-        <div class="how-step reveal reveal-d3">
-          <div class="step-num">03</div>
-          <h3>Play your cards</h3>
-          <p>Tap flex cards when the moment feels right. Clear required events before you can advance — yes, they're mandatory, yes, just like real life. Every choice nudges your morale, your credit score, and your precious, precious bottom line.</p>
-        </div>
-        <div class="how-step reveal reveal-d4">
-          <div class="step-num">04</div>
-          <h3>Watch it compound</h3>
-          <p>Advance the year! Interest accrues, taxes get calculated, credit events fire. The decisions you made this round come back around next round — for better or worse. (Compound interest works both ways. Just saying.)</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- wave -->
-  <div class="wave" aria-hidden="true" style="background: var(--bg-alt);">
-    <svg viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,20 C320,64 900,0 1440,40 L1440,64 L0,64 Z" fill="var(--bg)"/>
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,28 C120,0 240,56 360,28 C480,0 600,56 720,28 C840,0 960,56 1080,28 C1200,0 1320,56 1440,28 L1440,56 L0,56 Z" fill="var(--bg-gold)"/>
     </svg>
   </div>
 
   <!-- ── WHAT YOU LEARN ── -->
-  <section class="learn" id="learn">
-    <div class="section-inner">
+  <section class="learn" id="learn" style="background: var(--bg-gold);">
+    <div class="section-inner centered">
       <div class="reveal">
         <span class="section-label">
           <svg width="36" height="20" viewBox="0 0 36 20" fill="none" aria-hidden="true">
@@ -650,59 +799,73 @@
           real stuff. zero snooze.
         </span>
         <h2>What you'll actually walk away knowing</h2>
-        <p style="color:var(--text-soft); margin-top:12px; font-size:1rem;">
-          Every mechanic maps to a real personal finance concept. When you crush it, you'll know exactly why. When you don't... you'll also know why. Educational either way! 🙂
+        <p style="color:var(--text-mid); margin-top:12px; font-size:1rem;">
+          Every mechanic maps to a real personal finance concept. When you crush it, you'll know exactly why. When you don't... you'll also know why. 🙂
         </p>
       </div>
 
       <div class="learn-grid">
-        <div class="learn-chip reveal reveal-d1">
+        <div class="learn-chip c-cream reveal reveal-d1">
           <span class="chip-icon">🏦</span>
           <span class="chip-name">Savings Accounts</span>
-          <span class="chip-desc">Checking vs. HYSA vs. certificates — they're different, they pay different, and your future emergency fund has opinions.</span>
+          <span class="chip-desc">Checking vs. HYSA vs. certificates — they pay different, and your emergency fund has opinions.</span>
         </div>
-        <div class="learn-chip reveal reveal-d2">
+        <div class="learn-chip c-rose reveal reveal-d2">
           <span class="chip-icon">📈</span>
           <span class="chip-name">Investing Basics</span>
-          <span class="chip-desc">Brokerage? Roth IRA? The market?? It sounds scarier than it is. The game walks you through it without the existential dread. (Mostly.)</span>
+          <span class="chip-desc">Brokerage? Roth IRA? The market?? Sounds scarier than it is. (Mostly.)</span>
         </div>
-        <div class="learn-chip reveal reveal-d1">
+        <div class="learn-chip c-sage reveal reveal-d1">
           <span class="chip-icon">📊</span>
           <span class="chip-name">Budgeting</span>
-          <span class="chip-desc">Rent, groceries, transit, insurance — every round you allocate income across real expense categories. Spoiler: there are always more than you expect.</span>
+          <span class="chip-desc">Rent, groceries, transit, insurance — you allocate income across real expense categories.</span>
         </div>
-        <div class="learn-chip reveal reveal-d2">
+        <div class="learn-chip c-cream reveal reveal-d2">
           <span class="chip-icon">🧾</span>
           <span class="chip-name">Taxes</span>
-          <span class="chip-desc">Brackets! Deductions! Capital gains! It clicks in-game in a way no textbook ever managed. Then you'll be that person explaining it at parties.</span>
+          <span class="chip-desc">Brackets! Deductions! Capital gains! It clicks in-game in a way no textbook ever managed.</span>
         </div>
-        <div class="learn-chip reveal reveal-d1">
+        <div class="learn-chip c-rose reveal reveal-d1">
           <span class="chip-icon">⭐</span>
           <span class="chip-name">Credit Scores</span>
-          <span class="chip-desc">Pay on time → score goes up. Miss a payment → score cries. Watch your number react in real time. It's a relationship. Tend it carefully.</span>
+          <span class="chip-desc">Pay on time → score goes up. Miss a payment → score cries. It's a relationship.</span>
         </div>
-        <div class="learn-chip reveal reveal-d2">
+        <div class="learn-chip c-sage reveal reveal-d2">
           <span class="chip-icon">🌱</span>
           <span class="chip-name">Compound Interest</span>
-          <span class="chip-desc">The projection screen at the end shows your balances 30 years into the future. We'll let the math speak for itself. (It speaks LOUDLY.)</span>
+          <span class="chip-desc">The projection screen shows your balances 30 years out. The math speaks LOUDLY.</span>
         </div>
-        <div class="learn-chip reveal reveal-d1">
+        <div class="learn-chip c-cream reveal reveal-d1">
           <span class="chip-icon">🎲</span>
           <span class="chip-name">Life Events</span>
-          <span class="chip-desc">Bonuses! Surprise bills! Job changes! The game loves to throw curveballs — because life does too. At least here you get to pause and think.</span>
+          <span class="chip-desc">Bonuses! Surprise bills! Job changes! The game loves curveballs — because life does too.</span>
         </div>
-        <div class="learn-chip reveal reveal-d2">
+        <div class="learn-chip c-rose reveal reveal-d2">
           <span class="chip-icon">🛡️</span>
           <span class="chip-name">Risk & Insurance</span>
-          <span class="chip-desc">Insurance feels boring until you need it and don't have it. The game makes that tradeoff crystal clear, so you don't have to learn it the hard way.</span>
+          <span class="chip-desc">Boring until you need it and don't have it. The game makes that tradeoff crystal clear.</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- wave -->
+  <div class="wave" aria-hidden="true" style="background: var(--bg-gold);">
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,28 C120,56 240,0 360,28 C480,56 600,0 720,28 C840,56 960,0 1080,28 C1200,56 1320,0 1440,28 L1440,56 L0,56 Z" fill="var(--spruce)"/>
+    </svg>
+  </div>
+
   <!-- ── WHY IT MATTERS ── -->
   <section class="why" id="why">
-    <div class="section-inner why-inner">
+    <div class="section-inner">
+      <div class="bio-card reveal">
+        <img src="./assets/chloe-pfp.jpg" alt="Chloe, creator of TINFA" class="bio-photo">
+        <h4>Hey, I'm Chloe</h4>
+        <p>Building the money class I wish I had — so no friend of mine (or yours) enters adulthood without the basics.</p>
+        <a href="#creator" class="step-pill-small">Meet the Creator</a>
+      </div>
+
       <div class="reveal">
         <span class="section-label">why does this exist</span>
         <h2>Because most of us graduated without knowing what a Roth IRA was.</h2>
@@ -712,7 +875,7 @@
         states require a standalone personal finance class for high school graduation.
         Meanwhile, teenagers are expected to take out student loans, open credit cards,
         and manage their own money within months of graduating — with essentially zero
-        preparation. It's kind of wild when you say it out loud.
+        preparation.
       </p>
       <blockquote class="why-quote reveal reveal-d2">
         "I try to never let a friend of mine enter the adult life without some good money
@@ -741,8 +904,8 @@
 
   <!-- wave -->
   <div class="wave" aria-hidden="true" style="background: var(--spruce);">
-    <svg viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,10 C480,64 900,0 1440,30 L1440,64 L0,64 Z" fill="var(--bg-alt)"/>
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,28 C120,0 240,56 360,28 C480,0 600,56 720,28 C840,0 960,56 1080,28 C1200,0 1320,56 1440,28 L1440,56 L0,56 Z" fill="var(--bg-alt)"/>
     </svg>
   </div>
 
@@ -769,8 +932,7 @@
             I believe that financial freedom is not about the money — it's not about
             the math, and it's not about the numbers. Ultimately, financial freedom is
             about the <em>human life</em> it impacts, the doors it opens, and the human
-            being that it empowers — so that that person can live their life to the
-            fullest (whatever that may mean to them!).
+            being that it empowers.
           </p>
           <p class="reveal reveal-d3">
             Over the years, I had been shocked and a little horrified to learn just how
@@ -789,10 +951,53 @@
     </div>
   </section>
 
+  <!-- wave -->
+  <div class="wave" aria-hidden="true" style="background: var(--bg-alt);">
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,28 C120,56 240,0 360,28 C480,56 600,0 720,28 C840,56 960,0 1080,28 C1200,56 1320,0 1440,28 L1440,56 L0,56 Z" fill="var(--bg-gold)"/>
+    </svg>
+  </div>
+
+  <!-- ── FAQ ── -->
+  <section class="faq" id="faq">
+    <div class="section-inner centered">
+      <div class="reveal">
+        <span class="section-label">got questions?</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-cats reveal reveal-d1">
+          <span class="faq-cat active">General</span>
+          <span class="faq-cat">Ages & Players</span>
+          <span class="faq-cat">Release</span>
+        </div>
+        <div class="faq-list reveal reveal-d2">
+          <details class="faq-item" open>
+            <summary>Who is TINFA for?</summary>
+            <p>Built for ages 11 and up, but honestly it's for anyone who never got a real personal finance class — plenty of adults play too, no judgment.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How long does a game take?</summary>
+            <p>A round represents one year, and a full game runs 5–40 rounds depending on how you set it up — anywhere from a quick 20-minute playthrough to a full "live your whole financial life" session.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need to know anything about money first?</summary>
+            <p>Nope — that's the whole point. The game teaches the concepts as you play: savings, investing, taxes, credit, insurance, all of it.</p>
+          </details>
+          <details class="faq-item">
+            <summary>When can I actually play it?</summary>
+            <p>TINFA is coming soon! Join the waitlist below and we'll let you know the moment it's ready.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── WAITLIST CTA ── -->
   <section class="cta-band" id="waitlist">
     <div class="cta-inner">
-      <span class="eyebrow" style="font-family:var(--ff-accent); font-size:1.2rem; color:var(--blush); display:block; margin-bottom:12px;">psst — over here</span>
+      <span class="eyebrow">psst — over here</span>
       <h2 class="reveal">Want to be the first kid (or adult) in the door?</h2>
       <p class="reveal reveal-d1">
         Drop your email and we'll let you know the moment TINFA is ready.
@@ -813,11 +1018,44 @@
 
   <!-- ── FOOTER ── -->
   <footer>
-    <div class="footer-brand">
-      <img src="./assets/cat-cafe-logo.png" alt="TINFA logo" class="footer-logo">
-      <span class="footer-name">This Is Not Financial Advice; The Money Learning Game</span>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img src="./assets/cat-cafe-logo.png" alt="TINFA logo" class="footer-logo">
+          <span class="footer-name">This Is Not Financial Advice; The Money Learning Game</span>
+        </div>
+        <p class="footer-blurb">A card game that teaches you more about money than 12 years of school ever did.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#learn">What You Learn</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>About</h5>
+        <ul>
+          <li><a href="#why">Why TINFA</a></li>
+          <li><a href="#creator">The Creator</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get In</h5>
+        <ul>
+          <li><a href="#waitlist">Join Waitlist</a></li>
+        </ul>
+      </div>
     </div>
-    <p class="footer-copy">© 2026 — Lovingly built by Chloe. All rights reserved. Go save some money! 🌱</p>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 — Lovingly built by Chloe. All rights reserved. Go save some money! 🌱</p>
+    </div>
   </footer>
 
   <script>
