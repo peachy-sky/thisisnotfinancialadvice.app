@@ -21,3 +21,13 @@ if (alertForm) {
     alertThanks.style.display = 'block';
   });
 }
+
+// Home banner — clicking it scrolls to the next segment
+const homeBanner = document.getElementById('homeBanner');
+if (homeBanner) {
+  homeBanner.addEventListener('click', () => {
+    const next = homeBanner.closest('section').nextElementSibling;
+    const target = next && next.classList.contains('wave') ? next.nextElementSibling : next;
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+}
