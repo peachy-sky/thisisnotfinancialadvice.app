@@ -1,3 +1,12 @@
+/* ── FONTS ── */
+@font-face {
+  font-family: 'Lazy Dog';
+  src: url('./assets/lazy_dog.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ── TOKENS ── */
 :root {
   --bg:           #fef5ec;
@@ -38,7 +47,7 @@
   --r-pill:       999px;
   --r-arch:       999px 999px 20px 20px;
 
-  --ff-display:   'Playfair Display', Georgia, serif;
+  --ff-display:   'Lazy Dog', 'Playfair Display', Georgia, serif;
   --ff-body:      'Nunito', system-ui, sans-serif;
   --ff-accent:    'Dancing Script', cursive;
 }
@@ -227,22 +236,28 @@ p  { max-width: 62ch; }
 .step-card h3 { color: var(--rose-dk); margin: 18px 22px 8px; font-size: 1.02rem; }
 .step-card p { font-size: 0.89rem; color: var(--text-mid); max-width: none; margin: 0 22px; }
 
-/* ── QUOTE CARDS (home details) ── */
-.quote-stack { display: flex; flex-direction: column; gap: 22px; max-width: 760px; margin: 0 auto; }
-.quote-card {
-  background: var(--bg-card); border-left: 4px solid var(--coral);
-  border-radius: 18px; padding: 26px 30px; box-shadow: var(--shadow);
-  font-size: 1.02rem; color: var(--text-mid); line-height: 1.8; text-align: left;
+/* ── PROSE (home details) ── */
+.prose-block { max-width: 680px; margin: 0 auto; text-align: center; }
+.prose-lede {
+  font-family: var(--ff-display); font-style: italic;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem); color: var(--rose);
+  line-height: 1.5; margin-bottom: 32px;
 }
+.prose-body {
+  font-size: 1.04rem; color: var(--text-mid); line-height: 1.9;
+  max-width: none; text-align: left;
+}
+.prose-body + .prose-body { margin-top: 20px; }
 
 /* ── HOME HERO BANNER ── */
 .home-hero { position: relative; padding-top: 0; }
 .home-banner {
-  width: 100%; height: clamp(320px, 56vw, 620px); object-fit: cover;
-  object-position: center 30%;
+  width: 100%; height: clamp(440px, 78vw, 880px); object-fit: cover;
+  object-position: center 22%;
 }
 .home-hero-cta {
-  position: relative; margin-top: -34px; display: flex; justify-content: center; z-index: 2;
+  position: absolute; left: 0; right: 0; bottom: 64px;
+  display: flex; justify-content: center; z-index: 2;
 }
 
 /* ── CREATOR ── */
