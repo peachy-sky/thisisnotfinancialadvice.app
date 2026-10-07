@@ -120,13 +120,6 @@ p  { max-width: 62ch; }
   transition: transform 0.15s, box-shadow 0.2s;
 }
 .btn-alert:hover { color: #fff; transform: translateY(-2px); }
-.btn-alert::before {
-  content: ''; position: absolute; inset: -6px;
-  border: 2px dashed var(--coral); border-radius: var(--r-pill);
-  animation: ring-spin 10s linear infinite;
-}
-@keyframes ring-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .btn-alert::before { animation: none; } }
 
 /* ── BUTTONS ── */
 .btn-rose {
