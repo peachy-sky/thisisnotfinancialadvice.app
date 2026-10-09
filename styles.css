@@ -254,6 +254,7 @@ p  { max-width: 62ch; }
   position: absolute; left: 0; right: 0; bottom: 64px;
   display: flex; justify-content: center; z-index: 2;
 }
+.wave-hero { margin-top: -50px; position: relative; z-index: 1; }
 
 /* ── CREATOR ── */
 .creator-grid {
