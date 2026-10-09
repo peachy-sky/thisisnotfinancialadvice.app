@@ -247,7 +247,7 @@ p  { max-width: 62ch; }
 .home-banner {
   width: 100%; height: clamp(440px, 78vw, 880px); object-fit: cover;
   object-position: center 22%;
-  transform: translateY(-20px);
+  transform: translateY(-50px);
   cursor: pointer;
 }
 .home-hero-cta {
