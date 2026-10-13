@@ -130,7 +130,7 @@ p  { max-width: 62ch; }
   box-shadow: 0 4px 18px rgba(144, 74, 64, 0.28);
   transition: background 0.2s, box-shadow 0.2s;
   text-decoration: none;
-  animation: btn-breathe 2.8s ease-in-out infinite;
+  animation: btn-breathe 2.1s ease-in-out infinite;
   transform-origin: center;
 }
 .btn-rose:hover {
