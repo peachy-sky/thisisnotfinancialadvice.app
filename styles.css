@@ -123,16 +123,16 @@ p  { max-width: 62ch; }
 
 /* ── BUTTONS ── */
 .btn-rose {
-  background: var(--rose); color: #fff;
-  padding: 13px 30px; border-radius: var(--r-pill);
+  background: #b86752; color: var(--cream);
+  padding: 11px 28px; border-radius: var(--r-pill);
   font-weight: 800; font-size: 0.95rem; font-family: var(--ff-body);
-  border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+  border: 4px solid #904a40; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
   box-shadow: 0 4px 18px rgba(144, 74, 64, 0.28);
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
   text-decoration: none;
 }
 .btn-rose:hover {
-  background: var(--rose-dk); color: #fff;
+  background: #a85a46; color: var(--cream);
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(144, 74, 64, 0.36);
 }
