@@ -266,8 +266,8 @@ p  { max-width: 62ch; }
   cursor: pointer;
 }
 .home-hero-cta {
-  position: absolute; left: 0; right: 0; bottom: 64px;
-  display: flex; justify-content: center; z-index: 2;
+  position: absolute; left: 0; right: 0; bottom: 20px;
+  display: flex; justify-content: center; z-index: 3;
 }
 
 /* ── CREATOR ── */
