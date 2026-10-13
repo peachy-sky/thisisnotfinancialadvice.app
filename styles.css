@@ -161,7 +161,7 @@ p  { max-width: 62ch; }
 .btn-text-link:hover { color: var(--rose); }
 
 /* ── WAVES ── */
-.wave { width: 100%; overflow: hidden; line-height: 0; margin-bottom: -1px; position: relative; z-index: 1; }
+.wave { width: 100%; overflow: hidden; line-height: 0; margin: -1px 0 -3px; position: relative; z-index: 1; }
 .wave svg { display: block; width: 100%; }
 
 /* ── SHARED SECTION ── */
