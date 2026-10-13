@@ -290,14 +290,14 @@ p  { max-width: 62ch; }
   width: 100%; max-width: 400px;
   aspect-ratio: 1 / 1.1; object-fit: cover; object-position: top;
   border-radius: var(--r-arch);
-  border: 4px solid var(--blush); box-shadow: var(--shadow-lg);
+  border: 8px solid var(--blush); box-shadow: var(--shadow-lg);
 }
 .creator-photo-2 {
   position: absolute; z-index: 1;
   top: 68%; left: -62%; width: 115%; height: 78%;
   object-fit: cover; object-position: center 35%;
   border-radius: 8px;
-  border: 4px solid var(--salmon); box-shadow: var(--shadow-lg);
+  border: 8px solid var(--salmon); box-shadow: var(--shadow-lg);
 }
 @media (max-width: 960px) {
   .creator-photo-2 {
@@ -311,7 +311,7 @@ p  { max-width: 62ch; }
 .creator-copy h2 { margin-bottom: 20px; }
 .creator-copy p { font-size: 1rem; color: var(--text-soft); line-height: 1.88; margin-bottom: 18px; }
 .creator-copy p:last-child { margin-bottom: 0; }
-.creator-copy em { color: var(--rose); font-style: italic; }
+.creator-copy em { color: var(--rose); font-style: italic; font-weight: 700; }
 
 /* ── ALERT ME FORM ── */
 .alert-band { background: linear-gradient(140deg, var(--rose) 0%, var(--terracotta) 100%); }
