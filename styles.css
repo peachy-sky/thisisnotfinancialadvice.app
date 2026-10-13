@@ -206,7 +206,7 @@ p  { max-width: 62ch; }
 .badge-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
 .badge-card.c-rose  { background: #fee6c0; }
 .badge-card.c-gold  { background: #d48d63; }
-.badge-card.c-sage  { background: var(--bg-sage); }
+.badge-card.c-sage  { background: #bdc0ab; }
 .badge-card.c-cream { background: #98a48c; }
 
 .badge-icon {
