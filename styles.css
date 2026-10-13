@@ -128,13 +128,21 @@ p  { max-width: 62ch; }
   font-weight: 800; font-size: 0.95rem; font-family: var(--ff-body);
   border: 4px solid #6d752d; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
   box-shadow: 0 4px 18px rgba(144, 74, 64, 0.28);
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
   text-decoration: none;
+  animation: btn-breathe 2.8s ease-in-out infinite;
+  transform-origin: center;
 }
 .btn-rose:hover {
   background: #969650; color: var(--cream);
-  transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(144, 74, 64, 0.36);
+}
+@keyframes btn-breathe {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-rose { animation: none; }
 }
 
 .btn-text-link {
