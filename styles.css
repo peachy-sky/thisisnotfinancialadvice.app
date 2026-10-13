@@ -163,6 +163,13 @@ p  { max-width: 62ch; }
 /* ── WAVES ── */
 .wave { width: 100%; overflow: hidden; line-height: 0; margin: -1px 0 -3px; position: relative; z-index: 1; }
 .wave svg { display: block; width: 100%; }
+/* Thin backstop strip in the next section's color, covering any
+   subpixel rendering gap right at the seam. Set --seam-color inline
+   per divider to match whatever section follows it. */
+.wave::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 5px;
+  background: var(--seam-color, transparent);
+}
 
 /* ── SHARED SECTION ── */
 .section-inner { max-width: 1160px; margin: 0 auto; padding: 90px 5%; }
