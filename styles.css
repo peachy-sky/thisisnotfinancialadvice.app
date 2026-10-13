@@ -204,10 +204,10 @@ p  { max-width: 62ch; }
   box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s;
 }
 .badge-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-.badge-card.c-rose  { background: #ffefd8; }
+.badge-card.c-rose  { background: #fee6c0; }
 .badge-card.c-gold  { background: #d48d63; }
 .badge-card.c-sage  { background: var(--bg-sage); }
-.badge-card.c-cream { background: #feac5d; }
+.badge-card.c-cream { background: #98a48c; }
 
 .badge-icon {
   width: 48px; height: 48px; border-radius: 50%;
