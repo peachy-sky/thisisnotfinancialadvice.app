@@ -69,7 +69,7 @@ a:hover { color: var(--rose-dk); }
 h1, h2, h3 { font-family: var(--ff-display); line-height: 1.18; text-wrap: balance; }
 h1 { font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 700; }
 h2 { font-size: calc(clamp(1.7rem, 3vw, 2.6rem) + 10px); font-weight: 600; color: #72360c; }
-h3 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); font-weight: 600; }
+h3 { font-size: clamp(1.1rem, 1.8vw, 1.4rem); font-weight: 600; color: #72360c; }
 p  { max-width: 62ch; }
 
 /* ── NAV ── */
@@ -207,7 +207,7 @@ p  { max-width: 62ch; }
   background: rgba(255,255,255,0.65); display: flex; align-items: center; justify-content: center;
   font-size: 1.4rem; margin-bottom: 12px;
 }
-.badge-title { font-weight: 800; font-size: 1rem; color: var(--text); margin-bottom: 6px; }
+.badge-title { font-weight: 800; font-size: 1rem; color: #72360c; margin-bottom: 6px; }
 .badge-desc { font-size: 0.86rem; color: var(--text-mid); max-width: none; line-height: 1.5; }
 .badge-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .badge-tags span {
@@ -366,7 +366,7 @@ p  { max-width: 62ch; }
   font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: var(--r-pill);
 }
 .price-badge.soon { background: var(--eucalyptus); color: var(--spruce); }
-.price-name { font-weight: 800; font-size: 1.1rem; color: var(--text); }
+.price-name { font-weight: 800; font-size: 1.1rem; color: #72360c; }
 .price-val { font-family: var(--ff-display); font-size: 2rem; font-weight: 700; color: var(--rose); }
 .price-desc { font-size: 0.87rem; color: var(--text-soft); max-width: none; }
 
@@ -392,7 +392,7 @@ p  { max-width: 62ch; }
 .faq-item { background: var(--bg-card); border-radius: 18px; padding: 4px 22px; box-shadow: var(--shadow); }
 .faq-item summary {
   padding: 16px 0; cursor: pointer; font-weight: 800; font-size: 0.96rem;
-  color: var(--text); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  color: #72360c; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px;
 }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after { content: '+'; font-size: 1.3rem; color: var(--coral); flex-shrink: 0; transition: transform 0.2s; }
