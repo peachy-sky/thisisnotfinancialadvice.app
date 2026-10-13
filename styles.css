@@ -243,7 +243,7 @@ p  { max-width: 62ch; }
 .prose-body + .prose-body { margin-top: 20px; }
 
 /* ── HOME HERO BANNER ── */
-.home-hero { position: relative; padding-top: 0; }
+.home-hero { position: relative; padding-top: 0; background: var(--bg-alt); }
 .home-banner {
   width: 100%; height: clamp(440px, 78vw, 880px); object-fit: cover;
   object-position: center 22%;
