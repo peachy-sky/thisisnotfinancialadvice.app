@@ -204,17 +204,17 @@ p  { max-width: 62ch; }
   box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s;
 }
 .badge-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-.badge-card.c-rose  { background: var(--blush); }
-.badge-card.c-gold  { background: var(--bg-gold); }
+.badge-card.c-rose  { background: #ffefd8; }
+.badge-card.c-gold  { background: #d48d63; }
 .badge-card.c-sage  { background: var(--bg-sage); }
-.badge-card.c-cream { background: var(--bg-card); border: 1.5px solid var(--blush); }
+.badge-card.c-cream { background: #feac5d; }
 
 .badge-icon {
   width: 48px; height: 48px; border-radius: 50%;
   background: rgba(255,255,255,0.65); display: flex; align-items: center; justify-content: center;
   font-size: 1.4rem; margin-bottom: 12px;
 }
-.badge-title { font-weight: 800; font-size: 1rem; color: #72360c; margin-bottom: 6px; }
+.badge-title { font-family: var(--ff-display); font-weight: 700; font-size: 1.1rem; color: #72360c; margin-bottom: 6px; }
 .badge-desc { font-size: 0.86rem; color: var(--text-mid); max-width: none; line-height: 1.5; }
 .badge-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .badge-tags span {
@@ -223,7 +223,7 @@ p  { max-width: 62ch; }
 }
 
 .level-tag {
-  display: inline-block; background: var(--dark-choc); color: #fff;
+  display: inline-block; background: #9b5b36; color: #fff;
   border-radius: var(--r-pill); padding: 4px 13px; font-size: 0.72rem; font-weight: 800;
   margin-bottom: 12px;
 }
