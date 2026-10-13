@@ -253,8 +253,13 @@ p  { max-width: 62ch; }
 /* ── HOME HERO BANNER ── */
 .home-hero {
   position: relative; padding-top: 0; margin-top: -50px;
-  clip-path: polygon(0% 0%, 100% 0%, 100.00% calc(100% - 28.00px), 98.61% calc(100% - 13.86px), 97.22% calc(100% - 6.33px), 95.83% calc(100% - 8.95px), 94.44% calc(100% - 20.48px), 93.06% calc(100% - 35.52px), 91.67% calc(100% - 47.05px), 90.28% calc(100% - 49.67px), 88.89% calc(100% - 42.14px), 87.50% calc(100% - 28.00px), 86.11% calc(100% - 13.86px), 84.72% calc(100% - 6.33px), 83.33% calc(100% - 8.95px), 81.94% calc(100% - 20.48px), 80.56% calc(100% - 35.52px), 79.17% calc(100% - 47.05px), 77.78% calc(100% - 49.67px), 76.39% calc(100% - 42.14px), 75.00% calc(100% - 28.00px), 73.61% calc(100% - 13.86px), 72.22% calc(100% - 6.33px), 70.83% calc(100% - 8.95px), 69.44% calc(100% - 20.48px), 68.06% calc(100% - 35.52px), 66.67% calc(100% - 47.05px), 65.28% calc(100% - 49.67px), 63.89% calc(100% - 42.14px), 62.50% calc(100% - 28.00px), 61.11% calc(100% - 13.86px), 59.72% calc(100% - 6.33px), 58.33% calc(100% - 8.95px), 56.94% calc(100% - 20.48px), 55.56% calc(100% - 35.52px), 54.17% calc(100% - 47.05px), 52.78% calc(100% - 49.67px), 51.39% calc(100% - 42.14px), 50.00% calc(100% - 28.00px), 48.61% calc(100% - 13.86px), 47.22% calc(100% - 6.33px), 45.83% calc(100% - 8.95px), 44.44% calc(100% - 20.48px), 43.06% calc(100% - 35.52px), 41.67% calc(100% - 47.05px), 40.28% calc(100% - 49.67px), 38.89% calc(100% - 42.14px), 37.50% calc(100% - 28.00px), 36.11% calc(100% - 13.86px), 34.72% calc(100% - 6.33px), 33.33% calc(100% - 8.95px), 31.94% calc(100% - 20.48px), 30.56% calc(100% - 35.52px), 29.17% calc(100% - 47.05px), 27.78% calc(100% - 49.67px), 26.39% calc(100% - 42.14px), 25.00% calc(100% - 28.00px), 23.61% calc(100% - 13.86px), 22.22% calc(100% - 6.33px), 20.83% calc(100% - 8.95px), 19.44% calc(100% - 20.48px), 18.06% calc(100% - 35.52px), 16.67% calc(100% - 47.05px), 15.28% calc(100% - 49.67px), 13.89% calc(100% - 42.14px), 12.50% calc(100% - 28.00px), 11.11% calc(100% - 13.86px), 9.72% calc(100% - 6.33px), 8.33% calc(100% - 8.95px), 6.94% calc(100% - 20.48px), 5.56% calc(100% - 35.52px), 4.17% calc(100% - 47.05px), 2.78% calc(100% - 49.67px), 1.39% calc(100% - 42.14px), 0.00% calc(100% - 28.00px));
+  overflow: hidden;
 }
+.home-wave-strip {
+  position: absolute; left: 0; right: 0; bottom: -1px; z-index: 2;
+  line-height: 0; pointer-events: none;
+}
+.home-wave-strip svg { display: block; width: 100%; }
 .home-banner {
   width: 100%; height: clamp(440px, 78vw, 880px); object-fit: cover;
   object-position: center 22%;
