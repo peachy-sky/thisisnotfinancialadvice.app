@@ -293,11 +293,17 @@ p  { max-width: 62ch; }
   border: 4px solid var(--blush); box-shadow: var(--shadow-lg);
 }
 .creator-photo-2 {
-  position: relative; z-index: 1;
-  width: 90%; max-width: 360px; margin: -48px auto 0;
-  aspect-ratio: 16 / 10; object-fit: cover; object-position: center 35%;
-  border-radius: var(--r-card);
+  position: absolute; z-index: 1;
+  top: 68%; left: -62%; width: 115%; height: 78%;
+  object-fit: cover; object-position: center 35%;
+  border-radius: 8px;
   border: 4px solid var(--salmon); box-shadow: var(--shadow-lg);
+}
+@media (max-width: 960px) {
+  .creator-photo-2 {
+    position: static; width: 100%; max-width: 400px; height: auto;
+    aspect-ratio: 16 / 10; margin: 16px auto 0;
+  }
 }
 .creator-blob { position: absolute; bottom: -24px; right: -24px; width: 90px; height: 90px; border-radius: 50%; background: var(--peridot); opacity: 0.22; z-index: -1; }
 .creator-blob-2 { position: absolute; top: -16px; left: -16px; width: 60px; height: 60px; border-radius: 50%; background: var(--salmon); opacity: 0.18; z-index: -1; }
