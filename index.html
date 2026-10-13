@@ -201,37 +201,43 @@
   <!-- ── ALERT ME! ── -->
   <section class="alert-band" id="alert">
     <div class="alert-inner">
-      <h2 class="reveal">Alert Me!</h2>
-      <p class="lede reveal reveal-d1">
-        Follow along to hear when we launch! I'll only email when we're ready for you to jump in, which means 1 email/month max - I hate spam, and am also too busy putting my creativity into the game to be making that much marketing. Unsubscribe anytime!
-      </p>
-      <form class="alert-form reveal reveal-d2" id="alertForm">
-        <div class="form-row">
-          <div class="alert-field">
-            <label for="nameInput">Name</label>
-            <input type="text" class="alert-input" id="nameInput" placeholder="Your name" required>
-          </div>
-          <div class="alert-field">
-            <label for="emailInput">Email</label>
-            <input type="email" class="alert-input" id="emailInput" placeholder="your@email.com" required>
-          </div>
+      <div class="alert-grid">
+        <div class="alert-copy">
+          <h2 class="reveal">Alert Me!</h2>
+          <p class="lede reveal reveal-d1">
+            Follow along to hear when we launch! I'll only email when we're ready for you to jump in, which means 1 email/month max - I hate spam, and am also too busy putting my creativity into the game to be making that much marketing. Unsubscribe anytime!
+          </p>
         </div>
-        <div class="alert-field">
-          <label for="ageInput">Roughly what age would the players be?</label>
-          <select class="alert-select" id="ageInput" required>
-            <option value="" disabled selected>Select an age range</option>
-            <option>Under 10</option>
-            <option>10–14</option>
-            <option>15–18</option>
-            <option>18+ (adult learner)</option>
-            <option>Mixed ages / classroom</option>
-          </select>
+        <div>
+          <form class="alert-form reveal reveal-d2" id="alertForm">
+            <div class="form-row">
+              <div class="alert-field">
+                <label for="nameInput">Name</label>
+                <input type="text" class="alert-input" id="nameInput" placeholder="Your name" required>
+              </div>
+              <div class="alert-field">
+                <label for="emailInput">Email</label>
+                <input type="email" class="alert-input" id="emailInput" placeholder="your@email.com" required>
+              </div>
+            </div>
+            <div class="alert-field">
+              <label for="ageInput">Roughly what age would the players be?</label>
+              <select class="alert-select" id="ageInput" required>
+                <option value="" disabled selected>Select an age range</option>
+                <option>Under 10</option>
+                <option>10–14</option>
+                <option>15–18</option>
+                <option>18+ (adult learner)</option>
+                <option>Mixed ages / classroom</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-white">Alert Me!</button>
+          </form>
+          <p class="alert-thanks" id="alertThanks">
+            You're officially on the list! 🌱 We'll be in touch — promise.
+          </p>
         </div>
-        <button type="submit" class="btn-white">Alert Me!</button>
-      </form>
-      <p class="alert-thanks" id="alertThanks">
-        You're officially on the list! 🌱 We'll be in touch — promise.
-      </p>
+      </div>
     </div>
   </section>
 
