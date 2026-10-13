@@ -15,8 +15,10 @@ const alertForm = document.getElementById('alertForm');
 const alertThanks = document.getElementById('alertThanks');
 
 if (alertForm) {
-  alertForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+  alertForm.addEventListener('submit', () => {
+    // Let the native submission proceed to the hidden iframe (posts to
+    // Google Forms without navigating away from the page), and swap
+    // the UI to the thank-you message right away.
     alertForm.style.display = 'none';
     alertThanks.style.display = 'block';
   });

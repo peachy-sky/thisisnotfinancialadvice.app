@@ -216,20 +216,22 @@
           </p>
         </div>
         <div>
-          <form class="alert-form reveal reveal-d2" id="alertForm">
+          <form class="alert-form reveal reveal-d2" id="alertForm"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSdATTymBp-sG5xV1onJNumWjYemLAJwViu1xzf4-3LTYyKGkQ/formResponse"
+                method="POST" target="hidden_iframe">
             <div class="form-row">
               <div class="alert-field">
                 <label for="nameInput">Name</label>
-                <input type="text" class="alert-input" id="nameInput" placeholder="Your name" required>
+                <input type="text" class="alert-input" id="nameInput" name="entry.1255074534" placeholder="Your name" required>
               </div>
               <div class="alert-field">
                 <label for="emailInput">Email</label>
-                <input type="email" class="alert-input" id="emailInput" placeholder="your@email.com" required>
+                <input type="email" class="alert-input" id="emailInput" name="entry.792601790" placeholder="your@email.com" required>
               </div>
             </div>
             <div class="alert-field">
               <label for="ageInput">Roughly what age would the players be?</label>
-              <select class="alert-select" id="ageInput" required>
+              <select class="alert-select" id="ageInput" name="entry.1384885657" required>
                 <option value="" disabled selected>Select an age range</option>
                 <option>Under 10</option>
                 <option>10–14</option>
@@ -241,6 +243,7 @@
             </div>
             <button type="submit" class="btn-white">Alert Me!</button>
           </form>
+          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" aria-hidden="true"></iframe>
           <p class="alert-thanks" id="alertThanks">
             You're officially on the list! 🌱 We'll be in touch — promise.
           </p>
