@@ -306,7 +306,6 @@ p  { max-width: 62ch; }
   }
 }
 .creator-blob { position: absolute; bottom: -24px; right: -24px; width: 90px; height: 90px; border-radius: 50%; background: var(--peridot); opacity: 0.22; z-index: -1; }
-.creator-blob-2 { position: absolute; top: -16px; left: -16px; width: 60px; height: 60px; border-radius: 50%; background: var(--salmon); opacity: 0.18; z-index: -1; }
 .creator-copy .eyebrow { font-family: var(--ff-accent); font-size: 1.2rem; color: var(--coral); display: block; margin-bottom: 4px; }
 .creator-copy h2 { margin-bottom: 20px; }
 .creator-copy p { font-size: 1rem; color: var(--text-soft); line-height: 1.88; margin-bottom: 18px; }
@@ -432,7 +431,7 @@ footer { background: var(--dark-choc); padding: 72px 7% 0; }
   .nav-links { display: none; }
   .creator-grid { grid-template-columns: 1fr; }
   .creator-photo, .creator-photo-2 { max-width: 300px; }
-  .creator-blob, .creator-blob-2 { display: none; }
+  .creator-blob { display: none; }
   .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
   .cafe-hero { grid-template-columns: 1fr; text-align: center; }
   .faq-grid { grid-template-columns: 1fr; }
