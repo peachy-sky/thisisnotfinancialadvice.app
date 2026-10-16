@@ -307,7 +307,7 @@ p  { max-width: 62ch; }
   top: 68%; left: -62%; width: 115%; height: 78%;
   object-fit: cover; object-position: center 35%;
   border-radius: 8px;
-  border: 8px solid var(--salmon); box-shadow: var(--shadow-lg);
+  border: calc(8px / 1.4875) solid var(--salmon); box-shadow: var(--shadow-lg);
   transform: scale(1.4875); transform-origin: top right;
 }
 @media (max-width: 960px) {
