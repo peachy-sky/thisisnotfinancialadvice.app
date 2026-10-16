@@ -301,10 +301,11 @@ p  { max-width: 62ch; }
 }
 .creator-photo-2 {
   position: absolute; z-index: 1;
-  top: 68%; left: -148.25%; width: 201.25%; height: 136.5%;
+  top: 68%; left: -62%; width: 115%; height: 78%;
   object-fit: cover; object-position: center 35%;
   border-radius: 8px;
   border: 8px solid var(--salmon); box-shadow: var(--shadow-lg);
+  transform: scale(1.75); transform-origin: top right;
 }
 @media (max-width: 960px) {
   .creator-photo-2 {
