@@ -305,7 +305,7 @@ p  { max-width: 62ch; }
   object-fit: cover; object-position: center 35%;
   border-radius: 8px;
   border: 8px solid var(--salmon); box-shadow: var(--shadow-lg);
-  transform: scale(1.75); transform-origin: top right;
+  transform: scale(1.4875); transform-origin: top right;
 }
 @media (max-width: 960px) {
   .creator-photo-2 {
