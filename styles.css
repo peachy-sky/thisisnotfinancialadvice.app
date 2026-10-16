@@ -291,9 +291,7 @@ p  { max-width: 62ch; }
   display: grid; grid-template-columns: 320px 1fr;
   gap: 56px; align-items: start; margin-top: 48px;
 }
-.creator-heading {
-  grid-column: 1 / -1; white-space: nowrap; margin-bottom: 12px;
-}
+.creator-copy h2 { margin-bottom: 20px; }
 .creator-photo-wrap { position: relative; }
 .creator-photo {
   position: relative; z-index: 2;
@@ -455,7 +453,6 @@ footer { background: var(--dark-choc); padding: 72px 7% 0; }
   .section-inner { padding: 64px 5%; }
   .page-banner { padding-top: 120px; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-  .creator-heading { white-space: normal; }
   .form-row { flex-direction: column; }
   .footer-top { grid-template-columns: 1fr; }
 }
