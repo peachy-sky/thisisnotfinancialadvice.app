@@ -457,3 +457,12 @@ footer { background: var(--dark-choc); padding: 72px 7% 0; }
   .form-row { flex-direction: column; }
   .footer-top { grid-template-columns: 1fr; }
 }
+
+/* ── DECORATIVE COINS ── */
+.coin-decor {
+  position: absolute; pointer-events: none; z-index: 0;
+  display: none;
+}
+@media (min-width: 1300px) {
+  .coin-decor { display: block; }
+}
