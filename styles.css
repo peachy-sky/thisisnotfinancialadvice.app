@@ -79,7 +79,7 @@ p  { max-width: 62ch; }
 }
 .nav {
   position: relative;
-  background: rgba(254, 229, 189, 0.94);
+  background: rgba(255, 239, 216, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-radius: var(--r-pill);
