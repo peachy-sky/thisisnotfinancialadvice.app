@@ -173,7 +173,7 @@ p  { max-width: 62ch; }
 
 /* ── SHARED SECTION ── */
 .section-inner { max-width: 1160px; margin: 0 auto; padding: 90px 5%; }
-.learn .section-inner { max-width: 1320px; }
+.learn .section-inner { max-width: 1230px; }
 .section-inner.centered { text-align: center; }
 .section-inner.centered h2 { margin: 0 auto; }
 .section-inner.centered > p { margin-left: auto; margin-right: auto; }
