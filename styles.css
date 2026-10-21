@@ -79,7 +79,7 @@ p  { max-width: 62ch; }
 }
 .nav {
   position: relative;
-  background: rgba(255, 250, 245, 0.94);
+  background: rgba(254, 229, 189, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-radius: var(--r-pill);
@@ -134,7 +134,7 @@ p  { max-width: 62ch; }
   background: #a9a95f; color: var(--cream);
   padding: 11px 28px; border-radius: var(--r-pill);
   font-weight: 800; font-size: 0.95rem; font-family: var(--ff-body);
-  border: 4px solid #6d752d; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+  border: 8px solid #6d752d; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
   box-shadow: 0 4px 18px rgba(144, 74, 64, 0.28);
   transition: background 0.2s, box-shadow 0.2s;
   text-decoration: none;
