@@ -204,7 +204,7 @@ p  { max-width: 62ch; }
   box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s;
 }
 .badge-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-.badge-card.c-rose  { background: #fee6c0; border: 8px solid #fee5bd; }
+.badge-card.c-rose  { background: #fee6c0; border: 8px solid #fed491; }
 .badge-card.c-gold  { background: #d48d63; border: 8px solid #996647; }
 .badge-card.c-sage  { background: var(--bg-sage); border: 8px solid #7a7a44; }
 .badge-card.c-cream { background: #98a48c; border: 8px solid #6d7665; }
