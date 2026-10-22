@@ -374,18 +374,18 @@ p  { max-width: 62ch; }
   align-self: flex-start; background: var(--coral); color: #fff;
   font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: var(--r-pill);
 }
-.price-badge.soon { background: var(--eucalyptus); color: var(--spruce); }
+.price-badge.soon { background: var(--blush); color: var(--rose-dk); }
 .price-name { font-weight: 800; font-size: 1.1rem; color: #72360c; }
 .price-val { font-family: var(--ff-display); font-size: 2rem; font-weight: 700; color: var(--rose); }
 .price-desc { font-size: 0.87rem; color: var(--text-soft); max-width: none; }
 
 .price-contact {
-  background: var(--spruce); color: #f4f0e8; border-radius: 24px;
+  background: var(--dark-choc); color: rgba(254,245,236,0.85); border-radius: 24px;
   padding: 30px 30px; margin-top: 24px;
 }
-.price-contact h3 { color: var(--peridot); margin-bottom: 10px; }
-.price-contact p { color: var(--eucalyptus); max-width: none; }
-.price-contact a { color: var(--jade); font-weight: 800; text-decoration: underline; }
+.price-contact h3 { color: var(--thyme); margin-bottom: 10px; }
+.price-contact p { color: rgba(254,245,236,0.72); max-width: none; }
+.price-contact a { color: var(--coral); font-weight: 800; text-decoration: underline; }
 
 .price-guarantee {
   margin-top: 28px; padding: 20px 24px; border-radius: 16px;
