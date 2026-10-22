@@ -24,6 +24,28 @@ if (alertForm) {
   });
 }
 
+// FAQ category buttons — filter which questions are shown
+const faqCats = document.querySelectorAll('.faq-cat');
+const faqItems = document.querySelectorAll('.faq-item');
+
+function showFaqCategory(cat) {
+  faqCats.forEach(btn => btn.classList.toggle('active', btn.dataset.cat === cat));
+  faqItems.forEach(item => {
+    const match = item.dataset.cat === cat;
+    item.hidden = !match;
+    if (match) item.open = true;
+  });
+}
+
+faqCats.forEach(btn => {
+  btn.addEventListener('click', () => showFaqCategory(btn.dataset.cat));
+});
+
+if (faqCats.length) {
+  const initialCat = document.querySelector('.faq-cat.active')?.dataset.cat || faqCats[0].dataset.cat;
+  showFaqCategory(initialCat);
+}
+
 // Home banner — clicking it scrolls to the next segment
 const homeBanner = document.getElementById('homeBanner');
 if (homeBanner) {
