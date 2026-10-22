@@ -46,6 +46,49 @@ if (faqCats.length) {
   showFaqCategory(initialCat);
 }
 
+// Nav scroll-spy — bold whichever section's link matches the section
+// currently in view, instead of relying on hardcoded "active" classes
+// (which previously left two links bolded at once on multi-section pages).
+const sectionLinkMap = new Map();
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+  const id = link.getAttribute('href').slice(1);
+  const section = document.getElementById(id);
+  if (!section) return;
+  if (!sectionLinkMap.has(section)) sectionLinkMap.set(section, []);
+  sectionLinkMap.get(section).push(link);
+});
+
+function setActiveNavLinks(activeLinks) {
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  activeLinks.forEach(a => a.classList.add('active'));
+}
+
+if (sectionLinkMap.size) {
+  const navSpyObserver = new IntersectionObserver((entries) => {
+    let current = null;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (!current || entry.boundingClientRect.top < current.boundingClientRect.top) {
+          current = entry;
+        }
+      }
+    });
+    if (current) {
+      const links = sectionLinkMap.get(current.target);
+      if (links) setActiveNavLinks(links);
+    }
+  }, { rootMargin: '-96px 0px -70% 0px', threshold: 0 });
+
+  sectionLinkMap.forEach((links, section) => navSpyObserver.observe(section));
+
+  // Respond immediately on click rather than waiting for the scroll to settle.
+  sectionLinkMap.forEach((links) => {
+    links.forEach(link => {
+      link.addEventListener('click', () => setActiveNavLinks(links));
+    });
+  });
+}
+
 // Home banner — clicking it scrolls to the next segment
 const homeBanner = document.getElementById('homeBanner');
 if (homeBanner) {
