@@ -89,6 +89,51 @@ if (sectionLinkMap.size) {
   });
 }
 
+// Gold coin cursor — replaces the mouse pointer and leaves a fading
+// trail of small coins. Only on real mice (not touch), and skipped
+// for prefers-reduced-motion.
+const wantsCoinCursor =
+  window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+  !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (wantsCoinCursor) {
+  document.documentElement.classList.add('coin-cursor-active');
+
+  const customCursor = document.createElement('img');
+  customCursor.src = './assets/gold-coin.png';
+  customCursor.alt = '';
+  customCursor.id = 'customCursor';
+  document.body.appendChild(customCursor);
+
+  let lastTrailTime = 0;
+  const trailInterval = 45; // ms between trailing coins
+
+  document.addEventListener('mousemove', (e) => {
+    customCursor.style.opacity = '1';
+    customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+
+    const now = performance.now();
+    if (now - lastTrailTime > trailInterval) {
+      lastTrailTime = now;
+      const trail = document.createElement('img');
+      trail.src = './assets/gold-coin.png';
+      trail.alt = '';
+      trail.className = 'cursor-trail';
+      trail.style.left = `${e.clientX}px`;
+      trail.style.top = `${e.clientY}px`;
+      trail.addEventListener('animationend', () => trail.remove());
+      document.body.appendChild(trail);
+    }
+  });
+
+  document.addEventListener('mouseleave', () => {
+    customCursor.style.opacity = '0';
+  });
+  document.addEventListener('mouseenter', () => {
+    customCursor.style.opacity = '1';
+  });
+}
+
 // Nav logo easter egg — click it, coins pop out and slide back in
 const navBadge = document.getElementById('navBadge');
 const coinBurst = document.getElementById('coinBurst');
