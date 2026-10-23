@@ -159,15 +159,33 @@ if (navBadge && coinBurst) {
   });
 }
 
-// Decorative coins/objects — click to squish
-document.querySelectorAll('.coin-decor, .object-decor').forEach(el => {
-  el.addEventListener('click', () => {
-    el.classList.remove('squish');
-    void el.offsetWidth; // force reflow so the animation restarts on repeat clicks
-    el.classList.add('squish');
-  });
+// Decorative coins/objects — click to squish, plus a random auto-squish
+function squish(el) {
+  el.classList.remove('squish');
+  void el.offsetWidth; // force reflow so the animation restarts on repeat triggers
+  el.classList.add('squish');
+}
+
+const decorEls = document.querySelectorAll('.coin-decor, .object-decor');
+decorEls.forEach(el => {
+  el.addEventListener('click', () => squish(el));
   el.addEventListener('animationend', () => el.classList.remove('squish'));
 });
+
+if (decorEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  function isOnScreen(el) {
+    const rect = el.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return false; // hidden (narrow viewport)
+    return rect.bottom > 0 && rect.top < window.innerHeight &&
+           rect.right > 0 && rect.left < window.innerWidth;
+  }
+
+  setInterval(() => {
+    const visible = Array.from(decorEls).filter(isOnScreen);
+    if (!visible.length) return;
+    squish(visible[Math.floor(Math.random() * visible.length)]);
+  }, 30000);
+}
 
 // Home banner — clicking it scrolls to the next segment
 const homeBanner = document.getElementById('homeBanner');
