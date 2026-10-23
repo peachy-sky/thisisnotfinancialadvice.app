@@ -101,11 +101,13 @@ if (navBadge && coinBurst) {
       coin.src = './assets/gold-coin.png';
       coin.alt = '';
       coin.className = 'coin-pop';
-      const angle = (Math.PI * 2 * i) / count + (Math.random() * 0.6 - 0.3);
-      const dist = 34 + Math.random() * 22;
+      // Fully random angle/distance (rather than evenly spaced) so some
+      // coins land close together and overlap.
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 24 + Math.random() * 34;
       coin.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
       coin.style.setProperty('--ty', `${Math.sin(angle) * dist}px`);
-      coin.style.animationDelay = `${i * 45}ms`;
+      coin.style.animationDelay = `${i * 30}ms`;
       coin.addEventListener('animationend', () => coin.remove());
       coinBurst.appendChild(coin);
     }

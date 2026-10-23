@@ -96,7 +96,7 @@ p  { max-width: 62ch; }
   background: var(--bg-card); border: 4px solid var(--bg);
   box-shadow: var(--shadow-lg);
   display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
+  overflow: hidden; z-index: 300;
 }
 .nav-badge img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -106,15 +106,15 @@ p  { max-width: 62ch; }
   width: 58px; height: 58px; pointer-events: none; z-index: 250;
 }
 .coin-pop {
-  position: absolute; top: 50%; left: 50%; width: 22px; height: 22px;
-  margin: -11px 0 0 -11px; border-radius: 50%;
-  animation: coin-pop 0.7s ease-out forwards;
+  position: absolute; top: 50%; left: 50%; width: 33px; height: 33px;
+  margin: -16.5px 0 0 -16.5px; border-radius: 50%;
+  animation: coin-pop 2.5s ease-out forwards;
 }
 @keyframes coin-pop {
   0%   { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-  12%  { opacity: 1; }
-  45%  { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); opacity: 1; }
-  78%  { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); opacity: 1; }
+  6%   { opacity: 1; }
+  10%  { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); opacity: 1; }
+  90%  { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); opacity: 1; }
   100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
