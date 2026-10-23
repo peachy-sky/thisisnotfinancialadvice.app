@@ -474,3 +474,12 @@ footer { background: var(--dark-choc); padding: 72px 7% 0; }
 @media (min-width: 1300px) {
   .coin-decor { display: block; }
 }
+
+/* ── DECORATIVE OBJECTS (cat, coffee, etc) ── */
+.object-decor {
+  position: absolute; pointer-events: none; z-index: 0;
+  display: none;
+}
+@media (min-width: 1300px) {
+  .object-decor { display: block; }
+}
