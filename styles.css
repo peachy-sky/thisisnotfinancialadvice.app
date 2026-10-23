@@ -108,14 +108,14 @@ p  { max-width: 62ch; }
 .coin-pop {
   position: absolute; top: 50%; left: 50%; width: 33px; height: 33px;
   margin: -16.5px 0 0 -16.5px; border-radius: 50%;
-  animation: coin-pop 2.5s ease-out forwards;
+  animation: coin-pop 2s ease-out forwards;
 }
 @keyframes coin-pop {
   0%   { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-  6%   { opacity: 1; }
+  5%   { opacity: 1; }
   10%  { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); opacity: 1; }
-  90%  { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  85%  { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .coin-pop { animation: none; display: none; }
