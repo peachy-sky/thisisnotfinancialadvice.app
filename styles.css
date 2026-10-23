@@ -468,7 +468,7 @@ footer { background: var(--dark-choc); padding: 72px 7% 0; }
 
 /* ── DECORATIVE COINS ── */
 .coin-decor {
-  position: absolute; pointer-events: none; z-index: 0;
+  position: absolute; pointer-events: none; z-index: 2;
   display: none;
 }
 @media (min-width: 1300px) {
@@ -477,7 +477,7 @@ footer { background: var(--dark-choc); padding: 72px 7% 0; }
 
 /* ── DECORATIVE OBJECTS (cat, coffee, etc) ── */
 .object-decor {
-  position: absolute; pointer-events: none; z-index: 0;
+  position: absolute; pointer-events: none; z-index: 2;
   display: none;
 }
 @media (min-width: 1300px) {
