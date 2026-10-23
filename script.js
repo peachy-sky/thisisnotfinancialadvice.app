@@ -184,7 +184,7 @@ if (decorEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').ma
     const visible = Array.from(decorEls).filter(isOnScreen);
     if (!visible.length) return;
     squish(visible[Math.floor(Math.random() * visible.length)]);
-  }, 30000);
+  }, 10000);
 }
 
 // Home banner — clicking it scrolls to the next segment
