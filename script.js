@@ -89,6 +89,29 @@ if (sectionLinkMap.size) {
   });
 }
 
+// Nav logo easter egg — click it, coins pop out and slide back in
+const navBadge = document.getElementById('navBadge');
+const coinBurst = document.getElementById('coinBurst');
+
+if (navBadge && coinBurst) {
+  navBadge.addEventListener('click', () => {
+    const count = 5 + Math.floor(Math.random() * 4); // 5-8
+    for (let i = 0; i < count; i++) {
+      const coin = document.createElement('img');
+      coin.src = './assets/gold-coin.png';
+      coin.alt = '';
+      coin.className = 'coin-pop';
+      const angle = (Math.PI * 2 * i) / count + (Math.random() * 0.6 - 0.3);
+      const dist = 34 + Math.random() * 22;
+      coin.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
+      coin.style.setProperty('--ty', `${Math.sin(angle) * dist}px`);
+      coin.style.animationDelay = `${i * 45}ms`;
+      coin.addEventListener('animationend', () => coin.remove());
+      coinBurst.appendChild(coin);
+    }
+  });
+}
+
 // Home banner — clicking it scrolls to the next segment
 const homeBanner = document.getElementById('homeBanner');
 if (homeBanner) {
