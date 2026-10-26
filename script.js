@@ -106,7 +106,7 @@ if (wantsCoinCursor) {
   document.body.appendChild(customCursor);
 
   let lastTrailTime = 0;
-  const trailInterval = 45; // ms between trailing coins
+  const trailInterval = 30; // ms between trailing coins
 
   document.addEventListener('mousemove', (e) => {
     customCursor.style.opacity = '1';
