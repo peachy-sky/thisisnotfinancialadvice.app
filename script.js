@@ -132,6 +132,40 @@ if (wantsCoinCursor) {
   document.addEventListener('mouseenter', () => {
     customCursor.style.opacity = '1';
   });
+
+  // Coin cursor is wider than a single pixel, so treat a click as hitting
+  // whichever button it visually overlaps most, even if that's not the
+  // exact element under the native pointer position.
+  const coinHalf = 39 / 2;
+  const clickableSelector = 'button, a[class*="btn"], .faq-cat';
+
+  document.addEventListener('click', (e) => {
+    const coinRect = {
+      left: e.clientX - coinHalf, right: e.clientX + coinHalf,
+      top: e.clientY - coinHalf, bottom: e.clientY + coinHalf,
+    };
+
+    let best = null;
+    let bestArea = 0;
+    document.querySelectorAll(clickableSelector).forEach(btn => {
+      const r = btn.getBoundingClientRect();
+      const overlapW = Math.min(coinRect.right, r.right) - Math.max(coinRect.left, r.left);
+      const overlapH = Math.min(coinRect.bottom, r.bottom) - Math.max(coinRect.top, r.top);
+      if (overlapW > 0 && overlapH > 0) {
+        const area = overlapW * overlapH;
+        if (area > bestArea) {
+          bestArea = area;
+          best = btn;
+        }
+      }
+    });
+
+    if (best && !best.contains(e.target)) {
+      e.preventDefault();
+      e.stopPropagation();
+      best.click();
+    }
+  }, true);
 }
 
 // Nav logo easter egg — click it, coins pop out and slide back in
