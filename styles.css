@@ -491,7 +491,7 @@ footer { background: var(--dark-choc); padding: 72px 7% 0; }
    1300px display cutoff, so the elements take up less room (and
    overlap text less) the narrower the window gets. */
 :root {
-  --decor-scale: clamp(0.5, calc(0.5 + ((100vw - 1300px) / 400px) * 0.5), 1);
+  --decor-scale: clamp(0.3, calc(0.3 + ((100vw - 1300px) / 500px) * 0.7), 1);
 }
 
 /* ── DECORATIVE COINS ── */
