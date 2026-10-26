@@ -193,7 +193,7 @@ p  { max-width: 62ch; }
 }
 
 /* ── SHARED SECTION ── */
-.section-inner { max-width: 1160px; margin: 0 auto; padding: 90px 5%; }
+.section-inner { max-width: 1160px; margin: 0 auto; padding: 90px 5%; position: relative; z-index: 6; }
 .learn .section-inner { max-width: 1230px; }
 .section-inner.centered { text-align: center; }
 .section-inner.centered h2 { margin: 0 auto; }
@@ -345,7 +345,7 @@ p  { max-width: 62ch; }
 
 /* ── ALERT ME FORM ── */
 .alert-band { background: linear-gradient(140deg, var(--rose) 0%, var(--terracotta) 100%); }
-.alert-inner { max-width: 1100px; margin: 0 auto; padding: 90px 5%; }
+.alert-inner { max-width: 1100px; margin: 0 auto; padding: 90px 5%; position: relative; z-index: 6; }
 .alert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .alert-copy { text-align: left; }
 .alert-inner .eyebrow { color: var(--blush); font-family: var(--ff-accent); font-size: 1.2rem; display: block; margin-bottom: 12px; }
